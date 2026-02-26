@@ -12,6 +12,9 @@ const garamond = EB_Garamond({
 export const metadata: Metadata = {
   title: "Αδελφότης των εν Αθήναις Σαρακατσαναίων Ηπείρου",
   description: "49 Χρόνια Πολιτιστικής Προσφοράς",
+  icons: {
+    icon: "/favicon.ico", // Ή "/icon.png" ανάλογα πώς το ονόμασες
+  },
 };
 
 export default function RootLayout({
