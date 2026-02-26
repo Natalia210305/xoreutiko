@@ -47,7 +47,7 @@ export default function Melos() {
       <header className="mb-16 text-center">
         <h1 className="text-5xl md:text-7xl font-bold italic mb-6">Συμμετοχή & Συνδρομή</h1>
         <p className="text-xl md:text-2xl text-slate-600 italic leading-relaxed max-w-3xl mx-auto text-justify md:text-center">
-          Η Αδελφότης των εν Αθήναις Σαρακατσαναίων Ηπείρου πορεύεται από το 1977 χάρη στη συλλογική δύναμη και τη συμμετοχή των ανθρώπων της. 
+          Η Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου πορεύεται από το 1977 χάρη στη συλλογική δύναμη και τη συμμετοχή των ανθρώπων της. 
         </p>
       </header>
 
@@ -80,7 +80,7 @@ export default function Melos() {
 
       <footer className="mt-24 text-center border-t border-slate-100 pt-12">
         <p className="text-slate-400 italic">
-          Από το 1977, διατηρούμε ζωντανή την παράδοση των Σαρακατσαναίων της Ηπείρου.
+          Από το 1977, διατηρούμε ζωντανή την παράδοση των Σαρακατσαναίων.
         </p>
       </footer>
     </main>
