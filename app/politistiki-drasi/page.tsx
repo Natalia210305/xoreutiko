@@ -40,7 +40,7 @@ function ImageSlider({ images }: { images: string[] }) {
   return (
     <div className="relative w-full h-[300px] md:h-[450px] bg-slate-50 rounded-3xl overflow-hidden group shadow-md border border-slate-100">
       <NextImage 
-        key={`slide-${currentIndex}`} // ΑΥΤΟ ΕΙΝΑΙ ΤΟ ΚΛΕΙΔΙ
+        key={`slide-${currentIndex}`}
         src={images[currentIndex]} 
         alt="Εκθέματα Μουσείου" 
         fill 
@@ -49,12 +49,20 @@ function ImageSlider({ images }: { images: string[] }) {
         unoptimized={true}
       />
       
-      <button onClick={prevSlide} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 z-10">
-        <ChevronRight className="rotate-180 text-slate-900" size={24} />
+      {/* Αριστερό Βέλος */}
+      <button 
+        onClick={prevSlide} 
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md z-10 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
+      >
+        <ChevronRight className="rotate-180 text-slate-900 w-5 h-5 md:w-6 md:h-6" />
       </button>
 
-      <button onClick={nextSlide} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 z-10">
-        <ChevronRight className="text-slate-900" size={24} />
+      {/* Δεξί Βέλος */}
+      <button 
+        onClick={nextSlide} 
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md z-10 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
+      >
+        <ChevronRight className="text-slate-900 w-5 h-5 md:w-6 md:h-6" />
       </button>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
@@ -74,7 +82,7 @@ export default function PolitistikiDrasi() {
   };
 
   return (
-    <main className={`${ebGaramond.className} max-w-6xl mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>
+    <main className={`${ebGaramond.className} w-full p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>
       
       {/* Header */}
       <header className="mb-20 text-center">
@@ -88,7 +96,6 @@ export default function PolitistikiDrasi() {
       {/* ΚΑΤΗΓΟΡΙΑ 1: ΜΟΝΙΜΕΣ ΕΚΘΕΣΕΙΣ */}
       <section className="mb-24">
         <div className="flex flex-col items-center mb-12 text-center">
-          {/* ΑΛΛΑΓΗ ΕΔΩ: Αντικατάσταση Tent με την εικόνα κονακι.png */}
           <div className="relative w-24 h-24 mb-4">
             <NextImage 
               src="/κονακι.png" 
@@ -101,7 +108,7 @@ export default function PolitistikiDrasi() {
           <p className="text-slate-500 mt-2 italic">Η παρουσία μας σε εμβληματικά μουσεία και πολιτιστικούς χώρους</p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="w-full space-y-4">
           {/* Μασσαλία */}
           <AccordionItem 
             id="marseille"
@@ -134,30 +141,36 @@ export default function PolitistikiDrasi() {
             isOpen={openSection === 'hatzimichali'}
             onClick={() => toggleSection('hatzimichali')}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
               
-              <div className="space-y-4 text-justify order-2 md:order-1 text-slate-700">
+              {/* ΚΕΙΜΕΝΟ ΑΡΙΣΤΕΡΑ */}
+              <div className="space-y-4 text-justify text-slate-700 w-full order-2 md:order-1">
                 <div>
-                  Η Αδελφότητα, σε συνεργασία με τον Δήμο Αθηναίων, οργάνωσε στο Μουσείο Λαϊκής Τέχνης και Παράδοσης «Αγγελική Χατζημιχάλη» μόνιμη έκθεση αφιερωμένη στη σαρακατσάνικη ζωή και παράδοση. Η συνεργασία ξεκίνησε το 1980 με την παρουσίαση αυθεντικών παραδοσιακών αντικειμένων και την κατασκευή ενός σαρακατσάνικου κονακιού (καλύβας) από μέλη της Αδελφότητας.
+                  Η συνεργασία της Αδελφότητας με τον Δήμο Αθηναίων και το Μουσείο Λαϊκής Τέχνης και Παράδοσης «Αγγελική Χατζημιχάλη» ξεκίνησε το 1980–1981, σχεδόν αμέσως μετά την ίδρυση του Μουσείου, και συνεχίζεται αδιάλειπτα έως σήμερα, με εξαίρεση τα διαστήματα κατά τα οποία το κτίριο παρέμενε κλειστό λόγω εργασιών. Δεν θα ήταν υπερβολή να ειπωθεί ότι η παρουσία των Σαρακατσαναίων στον χώρο του Μουσείου είναι συνυφασμένη με την πορεία της Αδελφότητάς μας.                 
                 </div>
                 <div>
-                  Το 1995 η Αδελφότητα πρόσθεσε στην έκθεση έναν αυθεντικό «αργαλειό γούρνας», όμοιο με εκείνους που έστηναν οι Σαρακατσαναίοι κατά τον νομαδικό τους βίο. Πρόκειται για μοναδικό έκθεμα, καθώς μέχρι σήμερα δεν έχει εντοπιστεί αντίστοιχος αργαλειός σε άλλο μουσείο της χώρας.
+                  Η συνεργασία εγκαινιάστηκε με την παρουσίαση αυθεντικών αντικειμένων της σαρακατσάνικης ζωής και την κατασκευή ενός σαρακατσάνικου κονακιού από μέλη της Αδελφότητας. Το αρχικό κονάκι παρέμεινε στον χώρο για αρκετά χρόνια, έως ότου απομακρύνθηκε λόγω φυσικής φθοράς των υλικών. Τα υπόλοιπα αντικείμενα της Αδελφότητας, ωστόσο, συνέχισαν να εκτίθεται κανονικά.                 
                 </div>
                 <div>
-                  Το 2015, με αφορμή τη συμπλήρωση πενήντα χρόνων από τον θάνατο της μεγάλης λαογράφου Αγγελικής Χατζημιχάλη, η έκθεση ανανεώθηκε και εμπλουτίστηκε με νέα αντικείμενα από τη συλλογή της Αδελφότητας.
+                  Το 1995 — ή και ενδεχομένως νωρίτερα — προστέθηκε στη μόνιμη έκθεση ένας αυθεντικός «αργαλειός γούρνας», όμοιος με εκείνους που έστηναν οι Σαρακατσαναίοι κατά τον νομαδικό τους βίο. Πρόκειται για εξαιρετικά σπάνιο έκθεμα, καθώς μέχρι σήμερα δεν έχει εντοπιστεί αντίστοιχος αργαλειός σε άλλο μουσείο της χώρας.                 
                 </div>
                 <div>
-                  Το 2025, η Αδελφότητα προχώρησε στην κατασκευή ενός νέου, ορθού σαρακατσάνικου κονακιού στο εσωτερικό του Μουσείου, το οποίο πλέον αποτελεί αναπόσπαστο μέρος της μόνιμης έκθεσης. Παράλληλα, πραγματοποιήθηκαν εργασίες συντήρησης του αργαλειού, που σήμερα λειτουργεί ξανά, αναδεικνύοντας τη δεξιοτεχνία και την καθημερινότητα των Σαρακατσάνων.
+                  Το 2015, με αφορμή τη συμπλήρωση πενήντα ετών από τον θάνατο της Αγγελικής Χατζημιχάλη, η έκθεση ανανεώθηκε και εμπλουτίστηκε με νέα αντικείμενα από τη συλλογή της Αδελφότητας, καθώς και με φωτογραφικό υλικό από το αρχείο της. Η ανανέωση πραγματοποιήθηκε με την επιμέλεια της λαογράφου και διευθύντριας του Μουσείου, κας Σταυρούλας Πισιμίση. Έκτοτε, η μεγάλη αίθουσα του επάνω ορόφου φιλοξενεί μόνιμη έκθεση αφιερωμένη αποκλειστικά στους Σαρακατσαναίους.                 
                 </div>
                 <div>
-                  Το Μουσείο Λαϊκής Τέχνης and Παράδοσης «Αγγελική Χατζημιχάλη» λειτουργεί όλες τις ημέρες της εβδομάδας (πλην της Δευτέρας), με ελεύθεδο είσοδο για το κοινό, και αποτελεί έναν από τους πλέον δημοφιλείς πολιτιστικούς προορισμούς της Αθήνας. Η τοποθεσία του, στην καρδιά της γραφικής Πλάκας, προσελκύει πλήθος επισκεπτών, ενώ σχολεία από όλη την Ελλάδα προγραμματίζουν επισκέψεις μήνες νωρίτερα λόγω της υψηλής επισκεψιμότητας του Μουσείου.
+                  Το 2025 η Αδελφότητα προχώρησε στην κατασκευή νέου, ορθού σαρακατσάνικου κονακιού στο εσωτερικό του Μουσείου, με τη συμβολή μελών που έζησαν οι ίδιοι τις πρώτες δεκαετίες της ζωής τους μέσα σε σαρακατσάνικες κοινότητες. Το νέο κονάκι αποτελεί πλέον αναπόσπαστο τμήμα της μόνιμης έκθεσης. Παράλληλα, πραγματοποιήθηκαν εργασίες συντήρησης του αργαλειού γούρνας, ο οποίος σήμερα λειτουργεί εκ νέου.  
+                </div>
+                <div>Σήμερα, στη μόνιμη έκθεση φιλοξενούνται περισσότερα από 120 αντικείμενα της Αδελφότητας, τα οποία αποτυπώνουν με αυθεντικότητα πτυχές της νομαδικής ζωής, της οικογενειακής οργάνωσης και της υλικής και πνευματικής παράδοσης των Σαρακατσαναίων.
+                </div>
+                <div>Το Μουσείο λειτουργεί όλες τις ημέρες της εβδομάδας, πλην Δευτέρας, με ελεύθερη είσοδη για το κοινό. Η θέση του, στην καρδιά της Πλάκας, το καθιστά έναν από τους σημαντικότερους και πλέον επισκέψιμους πολιτιστικούς χώρους της Αθήνας, προσελκύοντας τόσο μεμονωμένους επισκέπτες όσο και σχολεία από όλη την Ελλάδα.
                 </div>
                 <div className="text-sm italic flex items-center gap-2 pt-2 text-slate-900 font-bold">
                   <MapPin size={16}/> Οδός Αγγ. Χατζημιχάλη 6, Πλάκα. Είσοδος ελεύθερη.
                 </div>
               </div>
 
-              <div className="order-1 md:order-2 w-full self-center py-4">
+              {/* ΕΙΚΟΝΕΣ ΔΕΞΙΑ */}
+              <div className="w-full order-1 md:order-2">
                 <ImageSlider 
                   images={[
                     "/mouseio1.jpg",
@@ -216,12 +229,12 @@ export default function PolitistikiDrasi() {
         <div className="flex flex-col items-center mb-12 text-center">
           <BookOpen size={48} className="text-slate-800 mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold italic">Λαογραφικό Υλικό</h2>
-          <div className="text-slate-600 mt-4 max-w-3xl mx-auto text-lg italic text-center">
+          <div className="text-slate-600 mt-4 w-full text-lg italic text-center">
             Η αναζήτηση συνεχίζεται. Απευθύνουμε ανοιχτό κάλεσμα σε όλους όσοι κουβαλούν στο σπίτι ή στη μνήμη τους πολύτιμα στοιχεία της σαρακατσάνικης παράδοσης, να τα μοιραστούν μαζί μας, ώστε να μη χαθούν και να συνεχίσουν να αφηγούνται την ιστορία μας στις επόμενες γενιές.
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
               <span className="bg-slate-100 p-2 rounded-xl">🏺</span> Αντικείμενα
@@ -284,7 +297,7 @@ export default function PolitistikiDrasi() {
           <h2 className="text-4xl md:text-5xl font-bold italic">Χορευτικό & Χορωδία</h2>
         </div>
         
-        <div className="max-w-4xl mx-auto bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm">
+        <div className="w-full bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm">
           <div className="relative w-full h-[250px] md:h-[400px] bg-slate-50">
             <NextImage 
               src="/xoreytiko.jpg" 
@@ -297,7 +310,7 @@ export default function PolitistikiDrasi() {
           </div>
           
           <div className="p-8 md:p-12 text-center border-t border-slate-50">
-            <div className="text-lg md:text-xl leading-relaxed italic text-slate-700 max-w-2xl mx-auto text-justify md:text-center">
+            <div className="text-lg md:text-xl leading-relaxed italic text-slate-700 w-full text-justify md:text-center">
                 Η Αδελφότητα διατηρεί ενεργό χορευτικό συγκρότημα και χορωδιακό τμήμα, με συμμετοχές σε πολιτιστικά δρώμενα, ανταμώματα και φεστιβάλ. Τα μαθήματα παραδοσιακού χορού και τραγουδιού είναι ανοιχτά για όλους όσοι επιθυμούν να γνωρίσουν από κοντά τη σαρακατσάνικη παράδοση.
             </div>
           </div>
@@ -309,12 +322,12 @@ export default function PolitistikiDrasi() {
         <div className="flex flex-col items-center mb-12 text-center">
           <Sparkles size={48} className="text-slate-800 mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold italic">Παραδοσιακές Εκδηλώσεις</h2>
-          <div className="text-slate-600 mt-4 max-w-3xl mx-auto text-lg italic text-center">
+          <div className="text-slate-600 mt-4 w-full text-lg italic text-center">
             Η Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου διοργανώνει κάθε χρόνο μια σειρά από πολιτιστικές και κοινωνικές εκδηλώσεις, που στοχεύουν στη διατήρηση και ανάδειξη της σαρακατσάνικης παράδοσης.
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-10 border border-slate-100 shadow-sm flex flex-col">
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-slate-900 p-3 rounded-2xl text-white">
@@ -326,7 +339,7 @@ export default function PolitistikiDrasi() {
             <div className="space-y-6 text-slate-700 leading-relaxed">
               <div className="flex gap-3">
                 <div className="text-slate-900 font-bold">•</div>
-                <div><strong>Ετήσιος χορός:</strong> Πραγματοποιείται στα τέλη Ιανουαρίου στην Αθήνα και αποτελεί σημείο συνάντησης μελών και φίλων της Αδελφότητας.</div>
+                <div><strong>Ετήσιος χορός:</strong> Πραγματοποιείται στα τέλη Ιανουαρίου στην Αθήνα και αποτελεί σημείο συνάνμησης μελών και φίλων της Αδελφότητας.</div>
               </div>
               <div className="flex gap-3">
                 <div className="text-slate-900 font-bold">•</div>
@@ -395,7 +408,7 @@ function AccordionItem({ title, subtitle, children, isOpen, onClick }: any) {
           <ChevronDown size={28} />
         </div>
       </button>
-      <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[1200px] opacity-100 border-t border-slate-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+      <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[2500px] opacity-100 border-t border-slate-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <div className="p-8 bg-slate-50 text-lg leading-relaxed italic text-slate-700">
           {children}
         </div>
