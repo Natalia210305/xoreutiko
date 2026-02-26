@@ -34,14 +34,17 @@ export default function Navigation() {
     <div className={ebGaramond.className}>
       
       {/* Navigation Button */}
-      <nav className="fixed top-6 right-6 md:top-10 md:right-12 z-50">
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          className="p-3 bg-white/80 backdrop-blur-md shadow-md hover:bg-slate-100 rounded-full transition-colors text-slate-900 cursor-pointer border border-slate-200"
-        >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
+      <nav className="fixed top-6 right-6 md:top-10 md:right-12 z-50">
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          className="flex items-center gap-2 p-2 px-4 bg-white/90 backdrop-blur-md shadow-lg hover:bg-slate-100 rounded-full transition-all text-slate-900 cursor-pointer border border-slate-200 group"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-widest">
+            {isMenuOpen ? "ΚΛΕΙΣΙΜΟ" : "ΜΕΝΟΥ"}
+          </span>
+          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </nav>
 
       {/* Menu Overlay */}
       {isMenuOpen && (
