@@ -88,7 +88,15 @@ export default function PolitistikiDrasi() {
       {/* ΚΑΤΗΓΟΡΙΑ 1: ΜΟΝΙΜΕΣ ΕΚΘΕΣΕΙΣ */}
       <section className="mb-24">
         <div className="flex flex-col items-center mb-12 text-center">
-          <Tent size={48} className="text-slate-800 mb-4" />
+          {/* ΑΛΛΑΓΗ ΕΔΩ: Αντικατάσταση Tent με την εικόνα κονακι.png */}
+          <div className="relative w-24 h-24 mb-4">
+            <NextImage 
+              src="/κονακι.png" 
+              alt="Σαρακατσάνικο Κονάκι" 
+              fill 
+              className="object-contain"
+            />
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold italic">Μόνιμες Εκθέσεις & Σαρακατσάνικα Κονάκια</h2>
           <p className="text-slate-500 mt-2 italic">Η παρουσία μας σε εμβληματικά μουσεία και πολιτιστικούς χώρους</p>
         </div>
@@ -126,10 +134,8 @@ export default function PolitistikiDrasi() {
             isOpen={openSection === 'hatzimichali'}
             onClick={() => toggleSection('hatzimichali')}
           >
-            {/* Προσθέσαμε items-center για να είναι οι φωτό στο κέντρο του ύψους του κειμένου */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
               
-              {/* ΚΕΙΜΕΝΟ */}
               <div className="space-y-4 text-justify order-2 md:order-1 text-slate-700">
                 <div>
                   Η Αδελφότητα, σε συνεργασία με τον Δήμο Αθηναίων, οργάνωσε στο Μουσείο Λαϊκής Τέχνης και Παράδοσης «Αγγελική Χατζημιχάλη» μόνιμη έκθεση αφιερωμένη στη σαρακατσάνικη ζωή και παράδοση. Η συνεργασία ξεκίνησε το 1980 με την παρουσίαση αυθεντικών παραδοσιακών αντικειμένων και την κατασκευή ενός σαρακατσάνικου κονακιού (καλύβας) από μέλη της Αδελφότητας.
@@ -144,14 +150,13 @@ export default function PolitistikiDrasi() {
                   Το 2025, η Αδελφότητα προχώρησε στην κατασκευή ενός νέου, ορθού σαρακατσάνικου κονακιού στο εσωτερικό του Μουσείου, το οποίο πλέον αποτελεί αναπόσπαστο μέρος της μόνιμης έκθεσης. Παράλληλα, πραγματοποιήθηκαν εργασίες συντήρησης του αργαλειού, που σήμερα λειτουργεί ξανά, αναδεικνύοντας τη δεξιοτεχνία και την καθημερινότητα των Σαρακατσάνων.
                 </div>
                 <div>
-                  Το Μουσείο Λαϊκής Τέχνης και Παράδοσης «Αγγελική Χατζημιχάλη» λειτουργεί όλες τις ημέρες της εβδομάδας (πλην της Δευτέρας), με ελεύθεδο είσοδο για το κοινό, και αποτελεί έναν από τους πλέον δημοφιλείς πολιτιστικούς προορισμούς της Αθήνας. Η τοποθεσία του, στην καρδιά της γραφικής Πλάκας, προσελκύει πλήθος επισκεπτών, ενώ σχολεία από όλη την Ελλάδα προγραμματίζουν επισκέψεις μήνες νωρίτερα λόγω της υψηλής επισκεψιμότητας του Μουσείου.
+                  Το Μουσείο Λαϊκής Τέχνης and Παράδοσης «Αγγελική Χατζημιχάλη» λειτουργεί όλες τις ημέρες της εβδομάδας (πλην της Δευτέρας), με ελεύθεδο είσοδο για το κοινό, και αποτελεί έναν από τους πλέον δημοφιλείς πολιτιστικούς προορισμούς της Αθήνας. Η τοποθεσία του, στην καρδιά της γραφικής Πλάκας, προσελκύει πλήθος επισκεπτών, ενώ σχολεία από όλη την Ελλάδα προγραμματίζουν επισκέψεις μήνες νωρίτερα λόγω της υψηλής επισκεψιμότητας του Μουσείου.
                 </div>
                 <div className="text-sm italic flex items-center gap-2 pt-2 text-slate-900 font-bold">
                   <MapPin size={16}/> Οδός Αγγ. Χατζημιχάλη 6, Πλάκα. Είσοδος ελεύθερη.
                 </div>
               </div>
 
-              {/* ΦΩΤΟΓΡΑΦΙΕΣ ΜΕ ΒΕΛΑΚΙΑ - Τώρα ευθυγραμμισμένες στο κέντρο */}
               <div className="order-1 md:order-2 w-full self-center py-4">
                 <ImageSlider 
                   images={[
@@ -217,7 +222,6 @@ export default function PolitistikiDrasi() {
         </div>
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Αντικείμενα */}
           <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
               <span className="bg-slate-100 p-2 rounded-xl">🏺</span> Αντικείμενα
@@ -238,7 +242,6 @@ export default function PolitistikiDrasi() {
             </div>
           </div>
 
-          {/* Φωτογραφίες */}
           <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
               <span className="bg-slate-100 p-2 rounded-xl">📷</span> Φωτογραφίες
@@ -253,7 +256,6 @@ export default function PolitistikiDrasi() {
             </div>
           </div>
 
-          {/* Τραγούδια */}
           <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
               <span className="bg-slate-100 p-2 rounded-xl">🎶</span> Παλιά, Ανέκδοτα Τραγούδια
@@ -264,7 +266,6 @@ export default function PolitistikiDrasi() {
             </div>
           </div>
 
-          {/* Ιστορίες */}
           <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
               <span className="bg-slate-100 p-2 rounded-xl">📜</span> Ιστορίες και Παραμύθια
@@ -314,7 +315,6 @@ export default function PolitistikiDrasi() {
         </div>
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Κάρτα 1: Διοργανώσεις Αδελφότητας */}
           <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-10 border border-slate-100 shadow-sm flex flex-col">
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-slate-900 p-3 rounded-2xl text-white">
@@ -343,7 +343,6 @@ export default function PolitistikiDrasi() {
             </div>
           </div>
 
-          {/* Κάρτα 2: Συμμετοχές & Ανταμώματα */}
           <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-10 text-white shadow-xl flex flex-col">
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-white/10 p-3 rounded-2xl text-white border border-white/20">
