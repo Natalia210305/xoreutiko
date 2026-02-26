@@ -10,8 +10,8 @@ const garamond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Αδελφότης Σαρακατσαναίων Ηπείρου",
-  description: "48 Χρόνια Πολιτιστικής Προσφοράς",
+  title: "Αδελφότης των εν Αθήναις Σαρακατσαναίων Ηπείρου",
+  description: "49 Χρόνια Πολιτιστικής Προσφοράς",
 };
 
 export default function RootLayout({
