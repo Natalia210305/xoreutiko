@@ -14,8 +14,7 @@ export default function Home() {
   // Τα states και ο κώδικας για Menu/Contact αφαιρέθηκαν για να έρχονται από το Layout
   
   return (
-    <main className={`${ebGaramond.className} max-w-6xl mx-auto p-4 md:p-10 text-slate-900 bg-white min-h-screen relative`}>
-      
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
       {/* Header */}
       <header className="flex flex-col md:flex-row items-center gap-8 border-b border-slate-200 pb-10 mb-10 pr-12">
         <div className="w-32 h-32 md:w-40 md:h-40 relative flex-shrink-0">

@@ -330,8 +330,7 @@ const [currentImage, setCurrentImage] = useState(0);
   const prevSlide = () => setCurrentImage((prev) => (prev === 0 ? xorosImages.length - 1 : prev - 1));
 
   return (
-    <main className={`${ebGaramond.className} max-w-5xl mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>
-      
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
       {/* Τίτλος */}
       <header className="mb-20 text-center">
         <h1 className="text-5xl md:text-7xl font-bold italic mb-6">Η Αδελφότητα</h1>

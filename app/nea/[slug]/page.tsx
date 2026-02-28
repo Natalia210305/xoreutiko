@@ -40,8 +40,7 @@ export default async function ArticlePage({
   }
 
   return (
-    <main className={`${ebGaramond.className} max-w-4xl mx-auto p-6 md:p-20 bg-white min-h-screen`}>
-      <Link href="/nea" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-10 transition-colors font-bold italic">
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      <Link href="/nea" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-10 transition-colors font-bold italic">
         <ArrowLeft size={20} /> Επιστροφή στα Νέα
       </Link>
 

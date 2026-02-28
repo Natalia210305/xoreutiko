@@ -20,8 +20,7 @@ export default function Ethelontismos() {
   ];
 
   return (
-    <main className={`${ebGaramond.className} max-w-4xl mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>
-      <header className="mb-16 text-center">
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      <header className="mb-16 text-center">
         <Users className="w-12 h-12 mx-auto mb-6 text-slate-800" />
         <h1 className="text-5xl md:text-6xl font-bold italic mb-4">Εθελοντισμός</h1>
         <p className="text-xl text-slate-600 italic leading-relaxed">

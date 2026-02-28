@@ -11,8 +11,7 @@ const ebGaramond = EB_Garamond({
 
 export default function Dorea() {
   return (
-    <main className={`${ebGaramond.className} max-w-4xl mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>
-      <header className="mb-16 text-center">
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      <header className="mb-16 text-center">
         <Heart className="w-12 h-12 mx-auto mb-6 text-red-600 animate-pulse" />
         <h1 className="text-5xl md:text-6xl font-bold italic mb-4">Δωρεά & Χορηγία</h1>
         <p className="text-xl text-slate-600 italic leading-relaxed">

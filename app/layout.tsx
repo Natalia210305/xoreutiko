@@ -24,8 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="el">
-      <body className={`${garamond.variable} ${inter.variable} font-serif`}>
+      <body className={`${garamond.variable} ${inter.variable} font-serif w-full`}>
         <Navigation /> 
+        <main className="w-full"></main>
         {children}
       </body>
     </html>

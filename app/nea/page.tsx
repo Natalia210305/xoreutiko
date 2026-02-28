@@ -28,8 +28,7 @@ export default async function NewsPage() {
   const newsItems = await getNews();
 
   return (
-    <main className={`${ebGaramond.className} max-w-6xl mx-auto p-6 md:py-20 text-slate-900 bg-white min-h-screen`}>
-      
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
       {/* HEADER */}
       <header className="mb-20 text-center">
         <div className="flex justify-center mb-4">

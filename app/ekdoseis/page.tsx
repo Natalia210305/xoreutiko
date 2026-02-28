@@ -81,8 +81,7 @@ export default function Ekdoseis() {
   ];
 
   return (
-    <main className={`${ebGaramond.className} max-w-6xl mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>
-      
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
       {/* Header */}
       <header className="mb-20 text-center">
         <h1 className="text-5xl md:text-7xl font-bold italic mb-6">Εκδόσεις</h1>

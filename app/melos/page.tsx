@@ -43,8 +43,7 @@ export default function Melos() {
   ];
 
   return (
-    <main className={`${ebGaramond.className} max-w-6xl mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>
-      <header className="mb-16 text-center">
+    <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      <header className="mb-16 text-center">
         <h1 className="text-5xl md:text-7xl font-bold italic mb-6">Συμμετοχή & Συνδρομή</h1>
         <p className="text-xl md:text-2xl text-slate-600 italic leading-relaxed max-w-3xl mx-auto text-justify md:text-center">
           Η Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου πορεύεται από το 1977 χάρη στη συλλογική δύναμη και τη συμμετοχή των ανθρώπων της. 
