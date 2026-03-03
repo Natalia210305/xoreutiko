@@ -365,32 +365,32 @@ const [currentImage, setCurrentImage] = useState(0);
       <section className="mb-15 pt-16 border-t border-slate-100">
         <h2 className="text-3xl font-bold border-b pb-4 mb-10 italic">Τα Ιδρυτικά Μέλη</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-lg italic text-slate-700">
-          <p>• Καρβούνης Αλκιβιάδης του Λάμπη</p>
-          <p>• Καρβούνης Ηλίας του Αριστοτέλους</p>
-          <p>• Καζούκας Ελευθέριος του Αλεξίου</p>
-          <p>• Κατρής Παύλος του Δημητρίου</p>
-          <p>• Γιαννακός Θεοχάρης του Ιωάννου</p>
-          <p>• Κάλλης Ηλίας του Θεοδώρου</p>
-          <p>• Καρβούνη Μαρία του Αλκιβιάδου</p>
-          <p>• Τάγκας Κωνσταντίνος του Νικολάου</p>
-          <p>• Τάγκας Αθανάσιοσ του Γεωργίου</p>
-          <p>• Κουμπής Θεόδωρος του Λεωνίδα</p>
-          <p>• Κουμπή Κλεοπάτρα του Θεοδώρου</p>
-          <p>• Γιαννακός Ηλίας του Αλεξίου</p>
-          <p>• Θανασούλας Σπυρίδων του Παντελή</p>
-          <p>• Φερεντίνος Κωνσταντίνος του Αλεξίου</p>
-          <p>• Τάγκας Ελευθέριος του Λάμπρου</p>
-          <p>• Θανασούλας Λεωνίδας του Παντελή </p>
-          <p>• Θανασούλα Άννα του Λεωνίδα</p>
-          <p>• Βαγγελή Δροσούλα του Λάμπρου</p>
-          <p>• Φερεντίνος Δημήτριος του Παύλου</p>
-          <p>• Φερεντίνου Αρετή του Δημητρίου</p>
-          <p>• Βαγγελής Νεοπτόλεμος του Γεωργίου</p>
           <p>• Βαγγελή Αρετή του Νεοπτόλεμου</p>
+          <p>• Βαγγελή Δροσούλα του Λάμπρου</p>
+          <p>• Βαγγελής Νεοπτόλεμος του Γεωργίου</p>
+          <p>• Γιαννακός Ηλίας του Αλεξίου</p>
+          <p>• Γιαννακός Θεοχάρης του Ιωάννου</p>
           <p>• Γιαννακούλης Παύλος του Αθανασίου</p>
           <p>• Ζήγος Νικόλαος του Γεωργίου</p>
+          <p>• Θανασούλα Άννα του Λεωνίδα</p>
+          <p>• Θανασούλας Λεωνίδας του Παντελή </p>
+          <p>• Θανασούλας Σπυρίδων του Παντελή</p>
+          <p>• Καζούκας Ελευθέριος του Αλεξίου</p>
+          <p>• Κάλλης Ηλίας του Θεοδώρου</p>
           <p>• Καραγιάννης Γεώργιος του Κωνσταντίνου</p>
+          <p>• Καρβούνη Μαρία του Αλκιβιάδου</p>
+          <p>• Καρβούνης Αλκιβιάδης του Λάμπη</p>
+          <p>• Καρβούνης Ηλίας του Αριστοτέλους</p>
+          <p>• Κατρής Παύλος του Δημητρίου</p>
+          <p>• Κουμπή Κλεοπάτρα του Θεοδώρου</p>
+          <p>• Κουμπής Θεόδωρος του Λεωνίδα</p>
+          <p>• Τάγκας Αθανάσιοσ του Γεωργίου</p>
+          <p>• Τάγκας Ελευθέριος του Λάμπρου</p>
+          <p>• Τάγκας Κωνσταντίνος του Νικολάου</p>
           <p>• Τσουμάνης Κωνσταντίνος του Βασιλείου</p>
+          <p>• Φερεντίνος Δημήτριος του Παύλου</p>
+          <p>• Φερεντίνος Κωνσταντίνος του Αλεξίου</p>
+          <p>• Φερεντίνου Αρετή του Δημητρίου</p>
         </div>
       </section>
 
@@ -434,40 +434,6 @@ const [currentImage, setCurrentImage] = useState(0);
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Ενότητα: Καταστατικό */}
-      <section className="mb-15 pt-16 border-t border-slate-100">
-        <h2 className="text-3xl font-bold border-b mb-10 italic">Καταστατικό</h2>
-        <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-6">
-            <div className="bg-slate-900 p-4 rounded-xl text-white">
-              <FileText size={40} />
-            </div>
-            <div>
-              <p className="text-xl leading-relaxed text-slate-700 max-w-md italic">
-                Ύστερα από την τελευταία τροποποίηση του καταστατικού η οποία πραγματοποιήθηκε το 2017, το καταστατικό είναι το ακόλουθο.
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <a 
-              href="/katastatiko.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-white border-2 border-slate-900 text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-50 transition-all cursor-pointer"
-            >
-              <Eye size={20} /> Προβολή
-            </a>
-            <a 
-              href="/katastatiko.pdf" 
-              download="Καταστατικό_Αδελφότητας.pdf"
-              className="flex items-center justify-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-slate-800 transition-all cursor-pointer"
-            >
-              <Download size={20} /> Λήψη PDF
-            </a>
           </div>
         </div>
       </section>
