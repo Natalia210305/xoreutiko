@@ -236,37 +236,33 @@ export default function PolitistikiDrasi() {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
-              <span className="bg-slate-100 p-2 rounded-xl">🏺</span> Αντικείμενα
+                {/* Το πλαίσιο παραμένει w-10 h-10 */}
+                <div className="relative w-10 h-10 shrink-0 overflow-hidden bg-slate-100 rounded-lg">
+                <NextImage 
+                    src="/antikeimena1.jpg" 
+                    alt="Αντικείμενα" 
+                    fill 
+                    className="object-contain" // <--- ΑΥΤΟ ΕΙΝΑΙ ΤΟ ΚΛΕΙΔΙ
+                    priority
+                />
+                </div>
+                Αντικείμενα
             </h3>
             <div className="space-y-4 text-justify text-slate-700">
-              <div>
+                <div>
                 Η Αδελφότητα έχει συγκεντρώσει πλήθος αυθεντικών αντικειμένων της παραδοσιακής, νομαδικής ζωής των Σαρακατσαναίων: ξυλόγλυπτα, εργαλεία, φορεσιές, υφαντά και είδη καθημερινής χρήσης.
-              </div>
-              <div>
+                </div>
+                <div>
                 Μέρος αυτών εκτίθεται στο Μουσείο Λαϊκής Τέχνης και Παράδοσης “Αγγελική Χατζημιχάλη” και στο Πνευματικό Κέντρο Ρουμελιωτών, ενώ η συλλογή της Αδελφότητας εμπλουτίζεται διαρκώς με νέα αντικείμενα.
-              </div>
-              <div>
+                </div>
+                <div>
                 Όλα τα αντικείμενα καταγράφονται σε ειδικό Βιβλίο Δωρεών, με αναφορά στον δωρητή και σύντομη περιγραφή, και φέρουν καρτελάκι ταυτοποίησης με τα αντίστοιχα στοιχεία.
-              </div>
-              <div className="text-sm bg-slate-50 p-3 rounded-lg border-l-4 border-slate-300 italic">
+                </div>
+                <div className="text-sm bg-slate-50 p-3 rounded-lg border-l-4 border-slate-300 italic">
                 Στόχος μας η διάσωση και ανάδειξη του υλικού αυτού μέσα από μουσειακές εκθέσεις στην Αθήνα.
-              </div>
+                </div>
             </div>
-          </div>
-
-          <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
-              <span className="bg-slate-100 p-2 rounded-xl">📷</span> Φωτογραφίες
-            </h3>
-            <div className="space-y-4 text-justify text-slate-700"> 
-              <div>
-                Η Αδελφότητα έχει συγκεντρώσει πάνω από 1.000 σπάνιες ασπρόμαυρες φωτογραφίες από τα τέλη του 19ου και τις αρχές του 20ού αιώνα, που αποτυπώνουν σκηνές από την καθημερινότητα, τα ήθη και τα έθιμα των Σαρακατσαναίων.
-              </div>
-              <div>
-                Η συλλογή αυτή αποτελεί πολύτιμο τεκμήριο λαογραφικής και κοινωνικής ιστορίας και συνεχίζει να εμπλουτίζεται με νέες προσθήκες, ώστε να αποτελέσει τη βάση για μελλοντικές εκδόσεις, όπως η ανανεωμένη έκδοση των Γενεαλογικών Δέντρων ή ένα νέο φωτογραφικό λεύκωμα.
-              </div>
             </div>
-          </div>
 
           <div className="bg-white border border-slate-200 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
             <h3 className="text-2xl font-bold italic mb-4 flex items-center gap-3">
