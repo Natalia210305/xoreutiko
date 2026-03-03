@@ -21,9 +21,10 @@ export default function Home() {
           <Image src="/logo.png" alt="Logo" fill className="object-contain" priority />
         </div>
         <div className="text-center md:text-center w-full">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight text-slate-800">
-            Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου (1977-σήμερα)
-          </h1>
+        <h1 className="text-3xl md:text-5xl font-bold leading-tight text-slate-800">
+          Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου 
+          <span className="whitespace-nowrap ml-2">(1977-σήμερα)</span>
+        </h1>
           <p className="text-xl md:text-2xl text-slate-600 italic mt-3">
             49 Χρόνια Πολιτιστικής Προσφοράς και Δράσης
           </p>
