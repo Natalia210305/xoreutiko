@@ -308,7 +308,7 @@ export default function PolitistikiDrasi() {
         <div className="w-full bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm">
           <div className="relative w-full h-[250px] md:h-[400px] bg-slate-50">
             <NextImage 
-              src="/xoreytiko.jpg" 
+              src="/ΧΟΡΕΥΤΙΚΟ.jpg" 
               alt="Χορευτικό Αδελφότητας" 
               fill
               priority

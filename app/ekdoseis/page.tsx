@@ -26,22 +26,51 @@ export default function Ekdoseis() {
       title: "Η Σαρακατσάνα – Εικόνα και Λόγος", 
       year: "2008", 
       subtitle: "Λεύκωμα αφιερωμένο στη γυναίκα της υπαίθρου, με τη στήριξη της Γ.Γ. Ισότητας",
-      desc: "Λεύκωμα αφιερωμένο στη γυναίκα της υπαίθρου, έκδοθεν με τη στήριξη της Γενικής Γραμματείας Ισότητας. Μέσα από σπάνιες φωτογραφίες και μαρτυρίες, αναδεικνύεται ο ρόλος Σαρακατσάνικης γυναίκας στην οικογένεια και στην κοινωνία, ως πυρήνας αντοχής και πολιτιστικής συνέχειας." 
+      desc: <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          {/* Μικρή και διακριτική εικόνα */}
+          <div className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white">
+            <Image 
+              src="/ΣΑΡΑΚΑΤΣΑΝΑ.jpg" 
+              alt="Εξώφυλλο Λευκώματος Η Σαρακατσάνα" 
+              fill 
+              className="object-cover"
+            />
+          </div>
+          
+          {/* Κείμενο δίπλα από την εικόνα */}
+          <p className="text-lg leading-relaxed italic text-justify text-slate-700">
+            Λεύκωμα αφιερωμένο στη γυναίκα της υπαίθρου, έκδοθεν με τη στήριξη της Γενικής Γραμματείας Ισότητας. 
+            Μέσα από σπάνιες φωτογραφίες και μαρτυρίες, αναδεικνύεται ο ρόλος της Σαρακατσάνικης γυναίκας 
+            στην οικογένεια και στην κοινωνία, ως πυρήνας αντοχής και πολιτιστικής συνέχειας.
+          </p>
+        </div>
     },
     { 
       title: "Μνήμη Κατσαντώνη", 
       year: "2008", 
       subtitle: "Ανατύπωση δύο ιστορικών βιογραφιών του ήρωα",
-      desc: (
-        <div className="flex justify-center w-full">
-          <ul className="list-disc text-left space-y-2 max-w-fit">
-            <li>«Βίος του Κατζαντώνη» του Επαμεινώνδα Φραγκίστα (1862)</li>
-            <li>Μετάφραση της γαλλικής βιογραφίας του Eugene Yemeniz (1869)</li>
-            <li className="list-none mt-4 italic opacity-80">
-              (Η έκδοση έγινε με αφορμή τα 200 χρόνια από τον μαρτυρικό θάνατό του Κατσαντώνη)
-            </li>
-          </ul>
-        </div>
+      desc: (<div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          {/* Μικρή και διακριτική εικόνα */}
+          <div className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white">
+            <Image 
+              src="/ΚΑΤΣΑΝΤΩΝΗΣ.jpg" 
+              alt="Εξώφυλλο Λευκώματος Η Σαρακατσάνα" 
+              fill 
+              className="object-cover"
+            />
+          </div>
+          {/* Κείμενο δίπλα από την εικόνα */}
+          <div className="flex justify-center w-full">
+            <ul className="list-disc text-left space-y-2 max-w-fit">
+              <li>«Βίος του Κατζαντώνη» του Επαμεινώνδα Φραγκίστα (1862)</li>
+              <li>Μετάφραση της γαλλικής βιογραφίας του Eugene Yemeniz (1869)</li>
+              <li className="list-none mt-4 italic opacity-80">
+                (Η έκδοση έγινε με αφορμή τα 200 χρόνια από τον μαρτυρικό θάνατό του Κατσαντώνη)
+              </li>
+            </ul>
+          </div>
+        </div> 
+
       )    
     },
     { 
@@ -70,7 +99,22 @@ export default function Ekdoseis() {
       title: "Ανάλεκτα Σαρακατσαναίων και μη", 
       year: "2017", 
       subtitle: "του φιλόλογου Θεόδωρου Γόγολου",
-      desc: "Μελέτη με ιστορικά, φιλολογικά και γλωσσολογικά στοιχεία για τους Σαρακατσαναίους και την πολιτιστική τους ταυτότητα." 
+      desc: <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          {/* Μικρή και διακριτική εικόνα */}
+          <div className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white">
+            <Image 
+              src="/ΑΝΑΛΕΚΤΑ.png" 
+              alt="Εξώφυλλο Λευκώματος Η Σαρακατσάνα" 
+              fill 
+              className="object-cover"
+            />
+          </div>
+          
+          {/* Κείμενο δίπλα από την εικόνα */}
+          <p className="text-lg leading-relaxed italic text-justify text-slate-700">
+            "Μελέτη με ιστορικά, φιλολογικά και γλωσσολογικά στοιχεία για τους Σαρακατσαναίους και την πολιτιστική τους ταυτότητα." 
+          </p>
+        </div> 
     },
     { 
       title: "Αληθινές Ιστορίες Σαρακατσαναίων Ηπείρου", 
@@ -97,7 +141,6 @@ export default function Ekdoseis() {
           <Newspaper size={48} className="text-slate-800 mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold italic">Εφημερίδα</h2>
         </div>
-        
         <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-16 border border-slate-100 shadow-sm">
           <div className="max-w-4xl mx-auto space-y-10">
             <h3 className="text-3xl md:text-4xl font-bold italic text-slate-800 text-center">«Τα Σαρακατσάνικα Χαιρετήματα»</h3>
@@ -119,20 +162,32 @@ export default function Ekdoseis() {
                 Παραθέτουμε το επετειακό 100ο φύλλο, στο οποίο πραγματοποιήθηκε καταγραφή και ταξινόμηση όλων των άρθρων που είχαν δημοσιευθεί έως τότε σε θεματικές ενότητες.
               </p>
             </div>
+{/* Περιοχή Κουμπιού και Εικόνας με Ίδιο Μέγεθος */}
+            <div className="pt-6 flex flex-col md:flex-row items-center justify-center gap-6">
+              
+              {/* Εικόνα Λογοτύπου */}
+              <div className="relative w-[320px] h-[100px] rounded-2xl overflow-hidden bg-white border border-slate-200 p-4 shadow-sm flex items-center justify-center">
+                <Image 
+                  src="/ΕΦΗΜΕΡΙΔΑ.png" 
+                  alt="Λογότυπο Χαιρετήματα" 
+                  fill 
+                  className="object-contain p-2"
+                />
+              </div>
 
-            <div className="pt-6 flex justify-center">
+              {/* Κουμπί Αρχείου */}
               <a 
                 href={`/${encodeURIComponent('ΧΑΙΡΕΤΗΜΑΤΑ-ΦΥΛΛΟ 100.pdf')}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-2xl hover:bg-slate-800 transition-all shadow-lg group cursor-pointer"
+                className="w-[320px] h-[100px] flex items-center justify-center gap-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 transition-all shadow-lg group cursor-pointer"
               >
-                <FileText size={24} className="opacity-70" />
+                <FileText size={28} className="opacity-70 shrink-0" />
                 <div className="text-left">
-                  <span className="block text-xs uppercase tracking-widest opacity-60 font-bold mb-1">Άνοιγμα Αρχείου</span>
-                  <span className="text-lg font-bold">Επετειακό Φύλλο 100</span>
+                  <span className="block text-[10px] uppercase tracking-widest opacity-60 font-bold mb-1">Άνοιγμα Αρχείου</span>
+                  <span className="text-base font-bold leading-tight">Επετειακό Φύλλο 100</span>
                 </div>
-                <ChevronRight size={20} className="ml-4 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
               </a>
             </div>
           </div>
