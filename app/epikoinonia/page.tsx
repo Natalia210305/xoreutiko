@@ -97,35 +97,32 @@ export default function EpikoinoniaPage() {
 
         {/* --- ΦΟΡΜΑ ΕΠΙΚΟΙΝΩΝΙΑΣ ΜΕ ΤΟ ΚΛΕΙΔΙ ΣΟΥ --- */}
         <form 
-          action="https://api.web3forms.com/submit" 
-          method="POST"
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
-        >
-          {/* ΕΔΩ ΜΠΗΚΕ ΤΟ ΚΛΕΙΔΙ ΣΟΥ */}
-          <input type="hidden" name="access_key" value="faff74b1-4f4a-4578-9ebc-bf2dd1805930" />
-          
-          {/* Αυτό το πεδίο εμποδίζει τα Bot να σου στέλνουν Spam (είναι κρυφό) */}
-          <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+            action="https://formspree.io/f/natalia.barka@icloud.com" 
+            method="POST"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
+            >
+            {/* Πεδία φόρμας */}
+            <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Ονοματεπώνυμο</label>
+                <input name="name" required type="text" className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all" placeholder="π.χ. Ιωάννης Γιαννακός" />
+            </div>
+            
+            <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Email</label>
+                <input name="_replyto" required type="email" className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all" placeholder="π.χ. info@gmail.com" />
+            </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Ονοματεπώνυμο</label>
-            <input name="name" required type="text" className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all" placeholder="π.χ. Ιωάννης Γιαννακός" />
-          </div>
-          <div className="space-y-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Email</label>
-            <input name="email" required type="email" className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all" placeholder="π.χ. info@gmail.com" />
-          </div>
-          <div className="md:col-span-2 space-y-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Το Μήνυμά σας</label>
-            <textarea name="message" required rows={6} className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all resize-none" placeholder="Γράψτε εδώ το μήνυμά σας..."></textarea>
-          </div>
+            <div className="md:col-span-2 space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Το Μήνυμά σας</label>
+                <textarea name="message" required rows={6} className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all resize-none" placeholder="Γράψτε εδώ το μήνυμά σας..."></textarea>
+            </div>
 
-          <div className="md:col-span-2 flex justify-center pt-4">
-            <button type="submit" className="flex items-center gap-3 bg-slate-900 text-white px-12 py-5 rounded-full font-bold hover:bg-slate-800 transition-all shadow-xl group cursor-pointer">
-              <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              ΑΠΟΣΤΟΛΗ ΜΗΝΥΜΑΤΟΣ
-            </button>
-          </div>
+            <div className="md:col-span-2 flex justify-center pt-4">
+                <button type="submit" className="flex items-center gap-3 bg-slate-900 text-white px-12 py-5 rounded-full font-bold hover:bg-slate-800 transition-all shadow-xl group cursor-pointer">
+                <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                ΑΠΟΣΤΟΛΗ ΜΗΝΥΜΑΤΟΣ
+                </button>
+            </div>
         </form>
       </section>
 
