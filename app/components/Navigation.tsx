@@ -32,8 +32,9 @@ export default function Navigation() {
     { name: "Η Αδελφότητα", href: "/adelfotita" },
     { name: "Πολιτιστική Δράση", href: "/politistiki-drasi" },
     { name: "Εκδόσεις", href: "/ekdoseis" },
-    { name: "Νέα", href: "/nea" },
+    { name: "Νέα & Ανακοινώσεις", href: "/nea" },
     { name: "Γίνετε Μέλος", href: "/melos" },
+    { name: "Επικοινωνία", href: "/epikoinonia" }, // Νέα κατηγορία
   ]
 
   return (

@@ -32,9 +32,6 @@ export default async function NewsPage() {
       {/* HEADER */}
       <header className="mb-20 text-center">
         <div className="flex justify-center mb-4">
-          <div className="bg-slate-50 p-4 rounded-full text-slate-800 shadow-sm border border-slate-100">
-            <Newspaper size={32} />
-          </div>
         </div>
         <h1 className="text-5xl md:text-7xl font-bold italic mb-6 text-slate-900">Νέα & Ανακοινώσεις</h1>
         <div className="w-24 h-1 bg-slate-900 mx-auto mb-8"></div>
