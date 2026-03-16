@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import Navigation from "./components/Navigation"; // Η ΔΙΟΡΘΩΣΗ ΕΙΝΑΙ ΕΔΩ
+import Navigation from "./components/Navigation";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const garamond = EB_Garamond({ 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου",
   description: "49 Χρόνια Πολιτιστικής Προσφοράς",
   icons: {
-    icon: "/favicon.ico", // Ή "/icon.png" ανάλογα πώς το ονόμασες
+    icon: "/favicon.ico", 
   },
 };
 
@@ -25,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="el">
       <body className={`${garamond.variable} ${inter.variable} font-serif w-full`}>
-        <Navigation /> 
-        <main className="w-full"></main>
-        {children}
+       <Navigation /> 
+        {/* pt-24 για κινητά | md:pt-48 για υπολογιστή (άλλαξε το 48 σε ό,τι σε βολεύει) */}
+        <main className="w-full pt-15 md:pt-5">
+          {children}
+        </main>
       </body>
     </html>
   );

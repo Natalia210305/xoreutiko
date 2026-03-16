@@ -1,13 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react' // Προστέθηκε το useEffect
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation' // Προστέθηκε το usePathname
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { EB_Garamond } from 'next/font/google'
 
-// Η δήλωση της γραμματοσειράς
 const ebGaramond = EB_Garamond({ 
   subsets: ['latin', 'greek'],
   weight: ['400', '700'],
@@ -17,43 +16,72 @@ const ebGaramond = EB_Garamond({
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
-  const pathname = usePathname() // Προστέθηκε για τον έλεγχο της διαδρομής
+  const pathname = usePathname()
 
-  // ΑΥΤΟ ΤΟ ΚΟΜΜΑΤΙ ΑΝΟΙΓΕΙ ΤΟ POP-UP ΟΤΑΝ ΤΟ LINK ΕΧΕΙ ΤΟ #contact
   useEffect(() => {
     if (window.location.hash === '#contact') {
       setIsContactOpen(true)
-      // Καθαρίζουμε το hash για να μπορεί να ξαναπατηθεί το link αν χρειαστεί
       window.history.replaceState(null, '', window.location.pathname)
     }
   }, [pathname])
 
   const closeMenu = () => setIsMenuOpen(false)
 
+  const navLinks = [
+    { name: "Αρχική", href: "/" },
+    { name: "Η Αδελφότητα", href: "/adelfotita" },
+    { name: "Πολιτιστική Δράση", href: "/politistiki-drasi" },
+    { name: "Εκδόσεις", href: "/ekdoseis" },
+    { name: "Νέα", href: "/nea" },
+    { name: "Γίνετε Μέλος", href: "/melos" },
+  ]
+
   return (
     <div className={ebGaramond.className}>
       
-      {/* Navigation Button */}
-      <nav className="fixed top-6 right-6 md:top-10 md:right-12 z-50">
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          className="flex items-center gap-2 p-2 px-4 bg-white/90 backdrop-blur-md shadow-lg hover:bg-slate-100 rounded-full transition-all text-slate-900 cursor-pointer border border-slate-200 group"
-        >
-          <span className="text-[10px] font-bold uppercase tracking-widest">
-            {isMenuOpen ? "ΚΛΕΙΣΙΜΟ" : "ΜΕΝΟΥ"}
-          </span>
-          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </nav>
+      {/* ΚΕΝΤΡΑΡΙΣΜΕΝΗ NAVBAR */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-100 shadow-sm">
+        <div className="max-w-[1600px] mx-auto px-6 py-4 flex flex-col items-center gap-4">
 
-      {/* Menu Overlay */}
+          {/* 2. Desktop Links (Κεντραρισμένα κάτω από το Logo) */}
+          <div className="hidden md:flex items-center justify-center gap-8 lg:gap-12 w-full border-t border-slate-50 pt-4">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                className={`text-[11px] lg:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 relative group py-1 ${
+                  pathname === link.href ? 'text-blue-600' : 'text-slate-500 hover:text-slate-900'
+                }`}
+              >
+                {link.name}
+                <span className={`absolute bottom-0 left-0 h-[2px] bg-blue-600 transition-all duration-300 ${
+                  pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button - Τοποθετημένο Πάνω Δεξιά όπως πριν */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="md:hidden absolute top-10 right-6 flex items-center gap-2 text-slate-900 cursor-pointer group bg-white/80 backdrop-blur-sm p-2 px-3 rounded-full shadow-sm border border-slate-100"
+          >
+            <span className="text-[10px] font-bold uppercase tracking-widest">
+              {isMenuOpen ? "ΚΛΕΙΣΙΜΟ" : "ΜΕΝΟΥ"}
+            </span>
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </nav>
+           {/* Mobile Menu Overlay (Μόνο για κινητά) */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 text-3xl shadow-2xl animate-in fade-in zoom-in duration-300 text-slate-900 font-sans">
-          <Link href="/" onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">Αρχική Σελίδα</Link>
-          <Link href="/adelfotita" onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">Η Αδελφότητα</Link>
-          <Link href="/politistiki-drasi" onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">Πολιτιστική Δράση</Link>
-          <Link href="/ekdoseis" onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">Εκδόσεις</Link>
-          <Link href="/nea" onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">Νέα & Ανακοινώσεις</Link>          <Link href="/melos" onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">Γίνετε Μέλος/Συνεργάτης</Link>
+        <div className="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-3xl shadow-2xl animate-in fade-in zoom-in duration-300 text-slate-900 font-sans md:hidden">
+          <button onClick={closeMenu} className="absolute top-10 right-10 p-2"><X size={32}/></button>
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">
+              {link.name}
+            </Link>
+          ))}
         </div>
       )}
 
@@ -66,7 +94,7 @@ export default function Navigation() {
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-bold text-sm uppercase tracking-widest">Επικοινωνία</span>
       </button>
 
-      {/* Pop-up Επικοινωνίας */}
+      {/* Pop-up Επικοινωνίας (Χωρίς αλλαγές) */}
       {isContactOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300 text-slate-900">
           <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-8">
@@ -87,7 +115,6 @@ export default function Navigation() {
                 <FaEnvelope className="text-slate-600" /> <p><strong>e-mail:</strong> xairetimata@gmail.com</p>
               </div>
               
-              {/* Social Media Buttons */}
               <div className="flex flex-wrap gap-4 pt-4 font-sans">
                 <a href="https://www.facebook.com/share/1CHrxnsVt3/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#1877F2] text-white px-4 py-2 rounded-full font-bold hover:opacity-90 cursor-pointer transition-opacity">
                   <FaFacebook /> Facebook
@@ -100,10 +127,9 @@ export default function Navigation() {
                 </a>
               </div>
 
-              {/* Διορθωμένος Χάρτης Google Maps */}
               <div className="pt-6 h-[350px] w-full rounded-xl overflow-hidden border border-slate-200 shadow-inner">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.823438416625!2d23.7213296123497!3d37.98408197181827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd12572cfe7f%3A0x42320a4c9cb31d95!2zzpbOrs69z4nOvc6_z4IgMzAsIM6RzrjOrs69zrEgMTA0IDM3!5e0!3m2!1sel!2sgr!4v1700000000000!5m2!1sel!2sgr" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.757421332768!2d23.722881376442654!3d37.98278290008588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd254f65c92d%3A0x6a0f7e9f3b185b1c!2sZinonos%2030%2C%20Athina%20104%2037!5e0!3m2!1sel!2sgr!4v1709123456789!5m2!1sel!2sgr" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
@@ -111,7 +137,7 @@ export default function Navigation() {
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
-                </div>
+              </div>
             </div>
           </div>
         </div>
