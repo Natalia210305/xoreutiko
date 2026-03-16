@@ -89,41 +89,32 @@ export default function EpikoinoniaPage() {
       </section>
 
       {/* --- ΝΕΑ ΕΝΟΤΗΤΑ: ΦΟΡΜΑ ΕΠΙΚΟΙΝΩΝΙΑΣ --- */}
+      {/* --- ΕΝΟΤΗΤΑ: ΑΜΕΣΗ ΕΠΙΚΟΙΝΩΝΙΑ ΜΕΣΩ EMAIL --- */}
       <section className="max-w-4xl mx-auto mb-24 pt-16 border-t border-slate-100">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold italic mb-4">Στείλτε μας Μήνυμα</h2>
-          <p className="text-xl text-slate-500 italic">Θα χαρούμε να ακούσουμε τις προτάσεις ή τις ερωτήσεις σας.</p>
+          <p className="text-xl text-slate-500 italic">
+            Πατήστε το παρακάτω κουμπί για να μας στείλετε email απευθείας από τη συσκευή σας.
+          </p>
         </div>
 
-        {/* --- ΦΟΡΜΑ ΕΠΙΚΟΙΝΩΝΙΑΣ ΜΕ ΤΟ ΚΛΕΙΔΙ ΣΟΥ --- */}
-        <form 
-            action="https://formspree.io/f/natalia.barka@icloud.com" 
-            method="POST"
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
-            >
-            {/* Πεδία φόρμας */}
-            <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Ονοματεπώνυμο</label>
-                <input name="name" required type="text" className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all" placeholder="π.χ. Ιωάννης Γιαννακός" />
-            </div>
-            
-            <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Email</label>
-                <input name="_replyto" required type="email" className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all" placeholder="π.χ. info@gmail.com" />
-            </div>
-
-            <div className="md:col-span-2 space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-4">Το Μήνυμά σας</label>
-                <textarea name="message" required rows={6} className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all resize-none" placeholder="Γράψτε εδώ το μήνυμά σας..."></textarea>
-            </div>
-
-            <div className="md:col-span-2 flex justify-center pt-4">
-                <button type="submit" className="flex items-center gap-3 bg-slate-900 text-white px-12 py-5 rounded-full font-bold hover:bg-slate-800 transition-all shadow-xl group cursor-pointer">
-                <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                ΑΠΟΣΤΟΛΗ ΜΗΝΥΜΑΤΟΣ
-                </button>
-            </div>
-        </form>
+        <div className="flex flex-col items-center justify-center p-12 bg-slate-50 rounded-[3rem] border border-slate-200 shadow-sm transition-all hover:shadow-md">
+          <div className="bg-white p-6 rounded-full shadow-inner mb-8 text-slate-900">
+            <FaEnvelope size={50} />
+          </div>
+          
+          <a 
+            href="mailto:xairetimata@gmail.com?subject=Επικοινωνία από την ιστοσελίδα&body=Γεια σας, θα ήθελα να επικοινωνήσω μαζί σας για..."
+            className="flex items-center gap-4 bg-slate-900 text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-slate-800 hover:scale-105 transition-all shadow-xl group"
+          >
+            <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            ΑΠΟΣΤΟΛΗ EMAIL
+          </a>
+          
+          <p className="mt-8 text-slate-400 font-sans uppercase tracking-[0.2em] text-xs font-bold">
+            ή γράψτε μας στο: xairetimata@gmail.com
+          </p>
+        </div>
       </section>
 
       {/* Footer-Like σημείωση */}
