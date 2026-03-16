@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { EB_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer"; // 1. Κάνε το import
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const garamond = EB_Garamond({ 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <main className="w-full pt-15 md:pt-5">
           {children}
         </main>
+        <Footer /> {/* 2. Βάλτο εδώ, μετά το main */}
       </body>
     </html>
   );
