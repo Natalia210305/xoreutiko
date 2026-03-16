@@ -23,7 +23,10 @@ export default function Home() {
         <div className="text-center md:text-center w-full">
         <h1 className="text-3xl md:text-5xl font-bold leading-tight text-slate-800">
           Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου 
-          <span className="whitespace-nowrap ml-2">(1977-σήμερα)</span>
+          {/* Το block αναγκάζει τη χρονολογία να πάει σε νέα γραμμή */}
+          <span className="block mt-2 text-3xl md:text-5xl font-bold leading-tight text-slate-800">
+            (1977-σήμερα)
+          </span>
         </h1>
           <p className="text-xl md:text-2xl text-slate-600 italic mt-3">
             49 Χρόνια Πολιτιστικής Προσφοράς και Δράσης
