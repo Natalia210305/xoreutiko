@@ -172,12 +172,11 @@ export default function PolitistikiDrasi() {
               <div className="w-full order-1 md:order-2">
                 <ImageSlider 
                   images={[
-                    "/mouseio1.jpg",
-                    "/mouseio2.jpg",
-                    "/mouseio3.jpg",
-                    "/mouseio4.jpg",
-                    "/mouseio5.jpg",
-                    "/mouseio6.jpg"
+                    "/xatz1.jpg",
+                    "/xatz2.jpg",
+                    "/xatz3.jpg",
+                    "/xatz4.jpg",
+                    "/xatz5.jpg"
                   ]} 
                 />
               </div>
@@ -211,7 +210,7 @@ export default function PolitistikiDrasi() {
 
               <div className="relative w-full h-[250px] md:h-[350px] bg-slate-50 rounded-2xl overflow-hidden order-1 md:order-2 border border-slate-100 shadow-sm">
                 <NextImage 
-                  src="/kentro.jpg" 
+                  src="/roumeliotes.jpg" 
                   alt="Σαρακατσάνικο Κονάκι στο Πνευματικό Κέντρο Ρουμελιωτών" 
                   fill 
                   className="object-contain p-2" 
