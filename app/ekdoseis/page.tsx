@@ -20,7 +20,16 @@ export default function Ekdoseis() {
       title: "Σαρακατσάνικα τραγούδια της Ηπείρου", 
       year: "1983", 
       subtitle: "Συλλογή σαρακατσάνικων τραγουδιών Ηπείρου - 400 τραγούδια με λαογραφικά σχόλια.",
-      desc: "Καταγραφή περίπου 400 τραγουδιών από ηλικιωμένους Σαρακατσαναίους της Ηπείρου, με παράλληλη τεκμηρίωση λαογραφικών στοιχείων. Πρόκειται για μία από τις πληρέστερες συλλογές σαρακατσάνικων τραγουδιών που έχουν εκδοθεί έως σήμερα." 
+      desc: (
+        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          <div onClick={() => setZoomedImage("/tragoudia.jpg")} className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white cursor-zoom-in active:scale-95 transition-transform">
+            <Image src="/tragoudia.jpg" alt="Εξώφυλλο" fill className="object-contain p-1" unoptimized />
+          </div>
+          <p className="text-lg leading-relaxed italic text-justify text-slate-700">
+            Καταγραφή περίπου 400 τραγουδιών από ηλικιωμένους Σαρακατσαναίους της Ηπείρου, με παράλληλη τεκμηρίωση λαογραφικών στοιχείων. Πρόκειται για μία από τις πληρέστερες συλλογές σαρακατσάνικων τραγουδιών που έχουν εκδοθεί έως σήμερα.
+          </p>
+        </div>
+      )
     },
     { 
       title: "Η Σαρακατσάνα – Εικόνα και Λόγος", 
@@ -62,17 +71,44 @@ export default function Ekdoseis() {
       title: "Σαρακατσάνικα Μολόηματα", 
       year: "2012, επανέκδοση 2023", 
       subtitle: "του Ναπολέοντα Βαγγελή",
-      desc: "Συλλογή εύθυμων αλλά και διδακτικών ιστοριών από τη σαρακατσάνικη ζωή, γραμμένων με το γλωσσικό ύφος και το πνεύμα της εποχής." 
+      desc: (
+        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          <div onClick={() => setZoomedImage("/μολοηματα.jpg")} className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white cursor-zoom-in active:scale-95 transition-transform">
+            <Image src="/μολοηματα.jpg" alt="Εξώφυλλο" fill className="object-contain p-1" unoptimized />
+          </div>
+          <p className="text-lg leading-relaxed italic text-justify text-slate-700">
+            Συλλογή εύθυμων αλλά και διδακτικών ιστοριών από τη σαρακατσάνικη ζωή, γραμμένων με το γλωσσικό ύφος και το πνεύμα της εποχής.
+          </p>
+        </div>
+      ) 
     },
     { 
       title: "Σαρακατσαναίοι - Πορεία στον Τόπο και στον Χρόνο", 
       year: "2012", 
-      desc: "Φωτογραφικό λεύκωμα βασισμένο σε σπάνιες ασπρόμαυρες φωτογραφίες της Ηπείρου. Η θεματική ταξινόμηση και επεξεργασία του υλικού αποτυπώνει με αυθεντικότητα τη ζωή και τις μετακινήσεις των Σαρακατσαναίων." 
+      desc: (
+        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          <div onClick={() => setZoomedImage("/topos-xronos.jpg")} className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white cursor-zoom-in active:scale-95 transition-transform">
+            <Image src="/topos-xronos.jpg" alt="Εξώφυλλο" fill className="object-contain p-1" unoptimized />
+          </div>
+          <p className="text-lg leading-relaxed italic text-justify text-slate-700">
+            Φωτογραφικό λεύκωμα βασισμένο σε σπάνιες ασπρόμαυρες φωτογραφίες της Ηπείρου. Η θεματική ταξινόμηση και επεξεργασία του υλικού αποτυπώνει με αυθεντικότητα τη ζωή και τις μετακινήσεις των Σαρακατσαναίων.
+          </p>
+        </div>
+      )
     },
     { 
       title: "Σαρακατσαναίοι της Ηπείρου – Γενεαλογικά Δένδρα", 
       year: "2015, επανέκδοση 2016", 
-      desc: "Λεύκωμα που καταγράφει τις οικογένειες, τις ρίζες και τις μετακινήσεις των Σαρακατσαναίων της Ηπείρου. Περιλαμβάνει πλούσιο φωτογραφικό υλικό και στοιχεία από την εποχή του νομαδικού βίου και των πρώτων χρόνων εγκατάστασης." 
+      desc: (
+        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          <div onClick={() => setZoomedImage("/genealogika.png")} className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white cursor-zoom-in active:scale-95 transition-transform">
+            <Image src="/genealogika.png" alt="Εξώφυλλο" fill className="object-contain p-1" unoptimized />
+          </div>
+          <p className="text-lg leading-relaxed italic text-justify text-slate-700">
+            Λεύκωμα που καταγράφει τις οικογένειες, τις ρίζες και τις μετακινήσεις των Σαρακατσαναίων της Ηπείρου. Περιλαμβάνει πλούσιο φωτογραφικό υλικό και στοιχεία από την εποχή του νομαδικού βίου και των πρώτων χρόνων εγκατάστασης.
+          </p>
+        </div>
+      )
     },
     { 
       title: "Στα Χνάρια της Σαρακατσάνικης Παράδοσης", 
@@ -108,7 +144,16 @@ export default function Ekdoseis() {
       title: "Αληθινές Ιστορίες Σαρακατσαναίων Ηπείρου", 
       year: "2023", 
       subtitle: "του φιλόλογου Γ. Καπρινιώτη, βασισμένο σε προφορικές μαρτυρίες",
-      desc: "Το έργο βασίζεται σε προφορικές μαρτυρίες ανθρώπων που έζησαν τον νομαδικό τρόπο ζωής. Οι αφηγήσεις τους αποτελούν πολύτιμες πηγές πρωτογενούς λαογραφικού υλικού." 
+      desc: (
+        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+          <div onClick={() => setZoomedImage("/ιστοριες.jpg")} className="relative w-[140px] h-[190px] shrink-0 rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-white cursor-zoom-in active:scale-95 transition-transform">
+            <Image src="/ιστοριες.jpg" alt="Εξώφυλλο" fill className="object-contain p-1" unoptimized />
+          </div>
+          <p className="text-lg leading-relaxed italic text-justify text-slate-700">
+            Το έργο βασίζεται σε προφορικές μαρτυρίες ανθρώπων που έζησαν τον νομαδικό τρόπο ζωής. Οι αφηγήσεις τους αποτελούν πολύτιμες πηγές πρωτογενούς λαογραφικού υλικού.
+          </p>
+        </div>
+      ) 
     }
   ];
 
