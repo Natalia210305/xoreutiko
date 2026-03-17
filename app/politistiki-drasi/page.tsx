@@ -92,8 +92,8 @@ export default function PolitistikiDrasi() {
         </p>
       </header>
 
-      {/* ΚΑΤΗΓΟΡΙΑ 1: ΜΟΝΙΜΕΣ ΕΚΘΕΣΕΙΣ */}
-      <section className="mb-24">
+      {/* ΚΑΤΗΓΟΡΙΑ 1: ΜΟΝΙΜΕΣ ΕΚΘΕΣΕΙΣ - ΠΡΟΣΘΗΚΗ ID */}
+      <section id="ektheseis" className="mb-24 scroll-mt-32">
         <div className="flex flex-col items-center mb-12 text-center">
           <div className="relative w-24 h-24 mb-4">
             <NextImage 
@@ -164,7 +164,7 @@ export default function PolitistikiDrasi() {
                 <div>Το Μουσείο λειτουργεί όλες τις ημέρες της εβδομάδας, πλην Δευτέρας, με ελεύθερη είσοδη για το κοινό. Η θέση του, στην καρδιά της Πλάκας, το καθιστά έναν από τους σημαντικότερους και πλέον επισκέψιμους πολιτιστικούς χώρους της Αθήνας, προσελκύοντας τόσο μεμονωμένους επισκέπτες όσο και σχολεία από όλη την Ελλάδα.
                 </div>
                 <div className="text-sm italic flex items-center gap-2 pt-2 text-slate-900 font-bold">
-                  <MapPin size={16}/> Οδός Αγγ. Χατζημιχάλη 6, Πλάκα. Είσοδος ελεύθερη.
+                  <MapPin size={16}/> Οδός Αγγ. Χατζημιχάλη 6, Πλάκα. Είσοδο ελεύθερη.
                 </div>
               </div>
 
@@ -223,8 +223,8 @@ export default function PolitistikiDrasi() {
         </div>
       </section>
 
-      {/* 2. ΛΑΟΓΡΑΦΙΚΟ ΥΛΙΚΟ */}
-      <section className="mb-24">
+      {/* 2. ΛΑΟΓΡΑΦΙΚΟ ΥΛΙΚΟ - ΠΡΟΣΘΗΚΗ ID */}
+      <section id="laografiko" className="mb-24 scroll-mt-32">
         <div className="flex flex-col items-center mb-12 text-center">
           <BookOpen size={48} className="text-slate-800 mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold italic">Λαογραφικό Υλικό</h2>
@@ -298,8 +298,8 @@ export default function PolitistikiDrasi() {
         </div>
       </section>
 
-      {/* 3. ΧΟΡΕΥΤΙΚΟ & ΧΟΡΩΔΙΑ */}
-      <section className="mb-24">
+      {/* 3. ΧΟΡΕΥΤΙΚΟ & ΧΟΡΩΔΙΑ - ΠΡΟΣΘΗΚΗ ID */}
+      <section id="choreftiko" className="mb-24 scroll-mt-32">
         <div className="flex flex-col items-center mb-10 text-center">
           <Users size={48} className="text-slate-800 mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold italic">Χορευτικό & Χορωδία</h2>
@@ -325,8 +325,8 @@ export default function PolitistikiDrasi() {
         </div>
       </section>
 
-      {/* 4. ΠΑΡΑΔΟΣΙΑΚΕΣ ΕΚΔΗΛΩΣΕΙΣ */}
-      <section className="mb-24">
+      {/* 4. ΠΑΡΑΔΟΣΙΑΚΕΣ ΕΚΔΗΛΩΣΕΙΣ - ΠΡΟΣΘΗΚΗ ID */}
+      <section id="ekdiloseis" className="mb-24 scroll-mt-32">
         <div className="flex flex-col items-center mb-12 text-center">
           <Sparkles size={48} className="text-slate-800 mb-4" />
           <h2 className="text-4xl md:text-5xl font-bold italic">Παραδοσιακές Εκδηλώσεις</h2>

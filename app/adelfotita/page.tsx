@@ -333,6 +333,11 @@ const [currentImage, setCurrentImage] = useState(0);
     <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
       {/* Τίτλος */}
       <header className="mb-20 text-center">
+        <section id="idrysi" className="scroll-mt-40 mb-16">
+        <p className="text-lg leading-relaxed text-justify">
+          {/* Εδώ μπαίνει το κείμενο για τους σκοπούς, τη διατήρηση της παράδοσης κλπ */}
+        </p>
+      </section>
         <h1 className="text-5xl md:text-7xl font-bold italic mb-6">Η Αδελφότητα</h1>
         <p className="text-2xl italic text-slate-600 underline decoration-slate-300 underline-offset-8">
           Ιστορικό (1977 – σήμερα)
@@ -362,6 +367,11 @@ const [currentImage, setCurrentImage] = useState(0);
       </section>
 
       {/* Ιδρυτικά Μέλη */}
+      <section id="members" className="scroll-mt-40 mb-16">
+        <ul className="list-disc pl-6 space-y-2">
+          {/* Λίστα με τα ονόματα των ιδρυτικών μελών */}
+        </ul>
+      </section>
       <section className="mb-15 pt-16 border-t border-slate-100">
         <h2 className="text-3xl font-bold border-b pb-4 mb-10 italic">Τα Ιδρυτικά Μέλη</h2>
         
@@ -423,6 +433,11 @@ const [currentImage, setCurrentImage] = useState(0);
       </section>
       
       {/* Ενότητα: Διοικητικά Συμβούλια (Sidebar Layout) */}
+      <section id="ds" className="scroll-mt-40 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Εδώ βάζεις τα ονόματα και τους ρόλους (Πρόεδρος, Γραμματέας κλπ) */}
+        </div>
+      </section>
       <section className="mb-24 pt-16 border-t border-slate-100">
         <h2 className="text-3xl font-bold border-b mb-2 italic">Διοικητικά Συμβούλια</h2>
         <p className="text-xl text-slate-500 mb-10 italic">Η ιστορική διαδρομή της Αδελφότητας (1977 – Σήμερα)</p>
@@ -467,6 +482,11 @@ const [currentImage, setCurrentImage] = useState(0);
       </section>
 
       {/* Ενότητα Βραβεύσεων */}
+      <section id="awards" className="scroll-mt-40 mb-16">
+        <p className="text-lg italic">
+          {/* Αναφορά σε βραβεία ή διακρίσεις που έχει λάβει η Αδελφότητα */}
+        </p>
+      </section>
       <section className="mb-15 pt-16 border-t border-slate-100 space-y-16">
         <h2 className="text-3xl font-bold border-b mb-5 italic">Τιμητικές Διακρίσεις & Αναγνωρίσεις</h2>
         
@@ -523,6 +543,11 @@ const [currentImage, setCurrentImage] = useState(0);
       </section>
 
       {/* Ενότητα: Έδρα – Ιδιόκτητοι Χώροι με Slider */}
+      <section id="edra" className="scroll-mt-40 mb-16">
+        <p className="text-lg">
+          Τα γραφεία της Αδελφότητας βρίσκονται στην οδό **Ζήνωνος 30, Αθήνα, Τ.Κ. 10437**.
+        </p>
+      </section>
       <section className="mb-20 pt-16 border-t border-slate-100">
         <h2 className="text-3xl font-bold border-b mb-5 italic">Έδρα – Ιδιόκτητοι Χώροι</h2>
         <div className="space-y-8 text-xl leading-relaxed">

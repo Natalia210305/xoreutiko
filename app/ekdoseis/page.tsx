@@ -136,6 +136,9 @@ export default function Ekdoseis() {
       </header>
 
       {/* 1. ΕΦΗΜΕΡΙΔΑ */}
+      <section id="efimerida" className="scroll-mt-40">
+        {/* Περιεχόμενο */}
+      </section>
       <section className="mb-32">
         <div className="flex flex-col items-center mb-10 text-center">
           <Newspaper size={48} className="text-slate-800 mb-4" />
@@ -195,6 +198,9 @@ export default function Ekdoseis() {
       </section>
 
       {/* 2. ΒΙΒΛΙΑ & ΛΕΥΚΩΜΑΤΑ - ACCORDION METHOD */}
+      <section id="vivlia" className="scroll-mt-40">
+        {/* Περιεχόμενο */}
+      </section>
       <section className="mb-32">
         <div className="flex flex-col items-center mb-10 text-center">
           <Book size={48} className="text-slate-800 mb-4" />
@@ -242,6 +248,10 @@ export default function Ekdoseis() {
       </section>
 
       {/* 3. ΠΑΡΑΔΟΣΙΑΚΑ ΤΡΑΓΟΥΔΙΑ */}
+      {/* Στο αρχείο των Εκδόσεων */}
+      <section id="tragoudia" className="scroll-mt-40">
+        {/* Το περιεχόμενό σου (π.χ. λίστα με MP3, YouTube ή κείμενα) */}
+      </section>
       <section className="mb-20">
         <div className="flex flex-col items-center mb-10 text-center">
           <Music size={48} className="text-slate-800 mb-4" />

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { EB_Garamond } from 'next/font/google'
 import Image from 'next/image'
@@ -28,11 +28,39 @@ export default function Navigation() {
 
   const closeMenu = () => setIsMenuOpen(false)
 
+  // ΕΔΩ ΠΡΟΣΘΕΣΑ ΤΑ SUBMENU ΠΟΥ ΖΗΤΗΣΕΣ
   const navLinks = [
     { name: "Αρχική", href: "/" },
-    { name: "Η Αδελφότητα", href: "/adelfotita" },
-    { name: "Πολιτιστική Δράση", href: "/politistiki-drasi" },
-    { name: "Εκδόσεις", href: "/ekdoseis" },
+    { 
+      name: "Η Αδελφότητα", 
+      href: "/adelfotita",
+      submenu: [
+        { name: "Σκοπός Ίδρυσης", href: "/adelfotita#idrysi" },
+        { name: "Ιδρυτικά Μέλη", href: "/adelfotita#members" },
+        { name: "Διοικητικά Συμβούλια", href: "/adelfotita#ds" },
+        { name: "Τιμητικές Διακρίσεις & Αναγνωρίσεις", href: "/adelfotita#awards" },
+        { name: "Έδρα – Ιδιόκτητοι Χώροι", href: "/adelfotita#edra" },
+      ]
+    },
+    { 
+      name: "Πολιτιστική Δράση", 
+      href: "/politistiki-drasi",
+      submenu: [
+        { name: "Μόνιμες Εκθέσεις & Σαρακατσάνικα Κονάκια", href: "/politistiki-drasi#ektheseis" },
+        { name: "Λαογραφικό Υλικό", href: "/politistiki-drasi#laografiko" },
+        { name: "Χορευτικό & Χορωδία", href: "/politistiki-drasi#choreftiko" },
+        { name: "Παραδοσιακές Εκδηλώσεις", href: "/politistiki-drasi#ekdiloseis" },
+      ]
+    },
+    { 
+      name: "Εκδόσεις", 
+      href: "/ekdoseis",
+      submenu: [
+        { name: "Εφημερίδα", href: "/ekdoseis#efimerida" },
+        { name: "Βιβλία & Λευκώματα", href: "/ekdoseis#vivlia" },
+        { name: "Παραδοσιακά Τραγούδια", href: "/ekdoseis#tragoudia" },
+      ]
+    },
     { name: "Νέα & Ανακοινώσεις", href: "/nea" },
     { name: "Γίνετε Μέλος", href: "/melos" },
     { name: "Επικοινωνία", href: "/epikoinonia" },
@@ -44,10 +72,8 @@ export default function Navigation() {
       {/* ΚΥΡΙΑ ΚΕΦΑΛΙΔΑ - ΤΕΡΜΑ ΠΑΝΩ */}
       <header className="w-full bg-white pt-8 pb-4">
         <div className="max-w-[1600px] mx-auto px-6 flex flex-col items-center text-center">
-          {/* Λογότυπο και Τίτλος */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-4">
              <div className="relative w-24 h-24 md:w-32 md:h-32">
-                {/* Αντικαταστήστε τη διαδρομή με τη σωστή διαδρομή του λογοτύπου σας */}
                 <Image 
                   src="/logo.png" 
                   alt="Λογότυπο Αδελφότητας" 
@@ -70,25 +96,44 @@ export default function Navigation() {
         </div>
       </header>
 
-      {/* NAVBAR - ΑΝΑΜΕΣΑ (ΣΤΗΝ ΚΥΚΛΩΜΕΝΗ ΠΕΡΙΟΧΗ) */}
+      {/* NAVBAR */}
       <nav className="relative w-full z-50 bg-white border-y border-slate-100 shadow-sm mb-0">
         <div className="max-w-[1600px] mx-auto px-6 py-4 flex flex-col items-center justify-center">
 
-          {/* Desktop Links */}
+          {/* Desktop Links - ΜΕ DROPDOWN ΛΕΙΤΟΥΡΓΙΑ */}
           <div className="hidden md:flex items-center justify-center gap-8 lg:gap-12 w-full">
             {navLinks.map((link) => (
-              <Link 
-                key={link.href} 
-                href={link.href} 
-                className={`text-[11px] lg:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 relative group py-1 ${
-                  pathname === link.href ? 'text-blue-600' : 'text-slate-500 hover:text-slate-900'
-                }`}
-              >
-                {link.name}
-                <span className={`absolute bottom-0 left-0 h-[2px] bg-blue-600 transition-all duration-300 ${
-                  pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}></span>
-              </Link>
+              <div key={link.name} className="relative group">
+                <Link 
+                  href={link.href} 
+                  className={`text-[11px] lg:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 relative py-1 flex items-center gap-1 ${
+                    pathname === link.href ? 'text-blue-600' : 'text-slate-500 hover:text-slate-900'
+                  }`}
+                >
+                  {link.name}
+                  {link.submenu && <ChevronDown size={12} className="opacity-50 group-hover:rotate-180 transition-transform" />}
+                  <span className={`absolute bottom-0 left-0 h-[2px] bg-blue-600 transition-all duration-300 ${
+                    pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></span>
+                </Link>
+
+                {/* ΤΟ DROPDOWN ΠΟΥ ΑΝΟΙΓΕΙ ΑΠΟ ΚΑΤΩ */}
+                {link.submenu && (
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-max min-w-[200px] pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                    <div className="bg-white border border-slate-100 shadow-xl rounded-md py-2 overflow-hidden">
+                      {link.submenu.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          href={sub.href}
+                          className="block px-6 py-3 text-[12px] text-slate-600 hover:bg-slate-50 hover:text-blue-600 border-b border-slate-50 last:border-0 transition-colors font-medium text-center"
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -138,15 +183,12 @@ export default function Navigation() {
                 <FaMapMarkerAlt className="text-slate-900 mt-1" />
                 <p><strong>Διεύθυνση γραφείων:</strong> Ζήνωνος 30, Αθήνα, Τ.Κ. 10437</p>
               </div>
-              
               <div className="flex items-center gap-4 text-slate-900 font-bold text-xl">
                 <FaPhoneAlt /> <p>210 5240777</p>
               </div>
-              
               <div className="flex items-center gap-4">
                 <FaEnvelope className="text-slate-600" /> <p><strong>e-mail:</strong> xairetimata@gmail.com</p>
               </div>
-              
               <div className="flex flex-wrap gap-4 pt-4 font-sans">
                 <a href="https://www.facebook.com/share/1CHrxnsVt3/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#1877F2] text-white px-4 py-2 rounded-full font-bold hover:opacity-90 cursor-pointer transition-opacity">
                   <FaFacebook /> Facebook
@@ -161,7 +203,7 @@ export default function Navigation() {
 
               <div className="pt-6 h-[350px] w-full rounded-xl overflow-hidden border border-slate-200 shadow-inner">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.757421332768!2d23.722881376442654!3d37.98278290008588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd254f65c92d%3A0x6a0f7e9f3b185b1c!2sZinonos%2030%2C%20Athina%20104%2037!5e0!3m2!1sel!2sgr!4v1709123456789!5m2!1sel!2sgr" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.7831!2d23.72244!3d37.98547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd330!2sZinonos%2030%2C%20Athina%20104%2037!5e0!3m2!1sel!2sgr!4v1700000000000" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 

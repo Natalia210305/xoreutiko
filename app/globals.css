@@ -29,3 +29,7 @@ body {
 button, a, select, [role="button"] {
   cursor: pointer;
 }
+
+html {
+  scroll-behavior: smooth;
+}
