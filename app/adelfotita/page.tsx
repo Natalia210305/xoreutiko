@@ -320,10 +320,10 @@ const [selectedYear, setSelectedYear] = useState(0);
 const [currentImage, setCurrentImage] = useState(0);
 
   const xorosImages = [
-    { src: '/χωρος1.jpg', alt: 'Λαογραφική Συλλογή 1' },
-    { src: '/χωρος2.jpg', alt: 'Λαογραφική Συλλογή 2' },
-    { src: '/χωρος3.jpg', alt: 'Λαογραφική Συλλογή 3' },
-    { src: '/χωρος4.jpg', alt: 'Λαογραφική Συλλογή 4' },
+    { src: '/xoros1.jpg', alt: 'Λαογραφική Συλλογή 1' },
+    { src: '/xoros2.jpg', alt: 'Λαογραφική Συλλογή 2' },
+    { src: '/xoros3.jpg', alt: 'Λαογραφική Συλλογή 3' },
+    { src: '/xoros4.jpg', alt: 'Λαογραφική Συλλογή 4' },
   ];
 
   const nextSlide = () => setCurrentImage((prev) => (prev === xorosImages.length - 1 ? 0 : prev + 1));
