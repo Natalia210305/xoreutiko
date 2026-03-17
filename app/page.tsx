@@ -1,7 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link' // Εισαγωγή του Link
+import Link from 'next/link'
 import { EB_Garamond } from 'next/font/google'
 
 const ebGaramond = EB_Garamond({ 
@@ -11,28 +10,10 @@ const ebGaramond = EB_Garamond({
 })
 
 export default function Home() {
-  // Τα states και ο κώδικας για Menu/Contact αφαιρέθηκαν για να έρχονται από το Layout
-  
   return (
     <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
-      {/* Header */}
-      <header className="flex flex-col md:flex-row items-center gap-8 border-b border-slate-200 pb-10 mb-10 pr-12">
-        <div className="w-32 h-32 md:w-40 md:h-40 relative flex-shrink-0">
-          <Image src="/logo.png" alt="Logo" fill className="object-contain" priority />
-        </div>
-        <div className="text-center md:text-center w-full">
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight text-slate-800">
-          Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου 
-          {/* Το block αναγκάζει τη χρονολογία να πάει σε νέα γραμμή */}
-          <span className="block mt-2 text-3xl md:text-5xl font-bold leading-tight text-slate-800">
-            (1977-σήμερα)
-          </span>
-        </h1>
-          <p className="text-xl md:text-2xl text-slate-600 italic mt-3">
-            49 Χρόνια Πολιτιστικής Προσφοράς και Δράσης
-          </p>
-        </div>
-      </header>
+      
+      {/* Το παλιό Header αφαιρέθηκε από εδώ γιατί τώρα περιλαμβάνεται στο Navigation component */}
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto space-y-12">

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { FaFacebook, FaInstagram, FaYoutube, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { EB_Garamond } from 'next/font/google'
+import Image from 'next/image'
 
 const ebGaramond = EB_Garamond({ 
   subsets: ['latin', 'greek'],
@@ -34,18 +35,47 @@ export default function Navigation() {
     { name: "Εκδόσεις", href: "/ekdoseis" },
     { name: "Νέα & Ανακοινώσεις", href: "/nea" },
     { name: "Γίνετε Μέλος", href: "/melos" },
-    { name: "Επικοινωνία", href: "/epikoinonia" }, // Νέα κατηγορία
+    { name: "Επικοινωνία", href: "/epikoinonia" },
   ]
 
   return (
     <div className={ebGaramond.className}>
       
-      {/* ΚΕΝΤΡΑΡΙΣΜΕΝΗ NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-100 shadow-sm">
-        <div className="max-w-[1600px] mx-auto px-6 py-4 flex flex-col items-center gap-4">
+      {/* ΚΥΡΙΑ ΚΕΦΑΛΙΔΑ - ΤΕΡΜΑ ΠΑΝΩ */}
+      <header className="w-full bg-white pt-8 pb-4">
+        <div className="max-w-[1600px] mx-auto px-6 flex flex-col items-center text-center">
+          {/* Λογότυπο και Τίτλος */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-4">
+             <div className="relative w-24 h-24 md:w-32 md:h-32">
+                {/* Αντικαταστήστε τη διαδρομή με τη σωστή διαδρομή του λογοτύπου σας */}
+                <Image 
+                  src="/logo.png" 
+                  alt="Λογότυπο Αδελφότητας" 
+                  fill 
+                  className="object-contain"
+                />
+             </div>
+             <div>
+                <h1 className="text-3xl md:text-5xl font-bold text-slate-800">
+                  Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου
+                </h1>
+                <p className="text-xl md:text-2xl italic text-slate-600 mt-2">
+                  (1977-σήμερα)
+                </p>
+                <p className="text-sm md:text-base font-medium text-slate-500 mt-1 italic border-slate-100 pt-2">
+                  49 Χρόνια Πολιτιστικής Προσφοράς και Δράσης
+                </p>
+             </div>
+          </div>
+        </div>
+      </header>
 
-          {/* 2. Desktop Links (Κεντραρισμένα κάτω από το Logo) */}
-          <div className="hidden md:flex items-center justify-center gap-8 lg:gap-12 w-full border-t border-slate-50 pt-4">
+      {/* NAVBAR - ΑΝΑΜΕΣΑ (ΣΤΗΝ ΚΥΚΛΩΜΕΝΗ ΠΕΡΙΟΧΗ) */}
+      <nav className="relative w-full z-50 bg-white border-y border-slate-100 shadow-sm mb-0">
+        <div className="max-w-[1600px] mx-auto px-6 py-4 flex flex-col items-center justify-center">
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center justify-center gap-8 lg:gap-12 w-full">
             {navLinks.map((link) => (
               <Link 
                 key={link.href} 
@@ -62,10 +92,10 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Menu Button - Τοποθετημένο Πάνω Δεξιά όπως πριν */}
+          {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="md:hidden absolute top-10 right-6 flex items-center gap-2 text-slate-900 cursor-pointer group bg-white/80 backdrop-blur-sm p-2 px-3 rounded-full shadow-sm border border-slate-100"
+            className="md:hidden flex items-center gap-2 text-slate-900 cursor-pointer group p-2 px-4 rounded-full border border-slate-100"
           >
             <span className="text-[10px] font-bold uppercase tracking-widest">
               {isMenuOpen ? "ΚΛΕΙΣΙΜΟ" : "ΜΕΝΟΥ"}
@@ -74,7 +104,8 @@ export default function Navigation() {
           </button>
         </div>
       </nav>
-           {/* Mobile Menu Overlay (Μόνο για κινητά) */}
+
+      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-3xl shadow-2xl animate-in fade-in zoom-in duration-300 text-slate-900 font-sans md:hidden">
           <button onClick={closeMenu} className="absolute top-10 right-10 p-2"><X size={32}/></button>
@@ -95,7 +126,7 @@ export default function Navigation() {
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-bold text-sm uppercase tracking-widest">Επικοινωνία</span>
       </button>
 
-      {/* Pop-up Επικοινωνίας (Χωρίς αλλαγές) */}
+      {/* Pop-up Επικοινωνίας */}
       {isContactOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-in fade-in duration-300 text-slate-900">
           <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-8">

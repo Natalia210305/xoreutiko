@@ -63,14 +63,14 @@ export default function Footer() {
               <a href="https://youtube.com/@adelfotitasha?si=TwE_XcEhdpq7rKhz" target="_blank" className="p-3 bg-white shadow-sm rounded-full text-[#FF0000] hover:scale-110 transition-transform border border-slate-100"><FaYoutube size={18} /></a>
             </div>
             <p className="text-xs md:text-[11px] leading-relaxed uppercase tracking-[0.2em] font-bold text-slate-500 font-sans">
-              Διατηρούμε ζωντανή την παράδοση των Σαρακατσαναίων της Ηπείρου από το 1977.
+              Διατηρούμε ζωντανή την παράδοση των Σαρακατσαναίων από το 1977.
             </p>
           </div>
         </div>
 
         {/* Bottom Bar (Sans-serif για καθαρότητα) */}
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-slate-400 font-sans">
-          <p>© Copyright {currentYear} | Αδελφότης Σαρακατσαναίων Ηπείρου</p>
+          <p>© Copyright {currentYear} | Αδελφότης των εν Αθήναις Σαρακατσαναίων Ηπείρου</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-slate-900 transition-colors">Πολιτική Απορρήτου</Link>
             <Link href="/cookies" className="hover:text-slate-900 transition-colors">Cookies</Link>
