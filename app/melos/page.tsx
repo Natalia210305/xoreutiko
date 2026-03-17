@@ -71,7 +71,7 @@ export default function Melos() {
             </div>
             
             <div className="flex items-center gap-2 text-slate-400 font-bold text-sm uppercase tracking-widest mt-6 group-hover:text-slate-900 transition-colors">
-              Περισσοτερα <ArrowRight size={18} />
+              Περισσότερα <ArrowRight size={18} />
             </div>
           </Link>
         ))}

@@ -98,9 +98,10 @@ export default function Navigation() {
 
       {/* NAVBAR */}
       <nav className="relative w-full z-50 bg-white border-y border-slate-100 shadow-sm mb-0">
-        <div className="max-w-[1600px] mx-auto px-6 py-4 flex flex-col items-center justify-center">
-
-          {/* Desktop Links - ΜΕ DROPDOWN ΛΕΙΤΟΥΡΓΙΑ */}
+        {/* Στο κινητό (md:hidden) χρησιμοποιούμε justify-end για να πάει το κουμπί δεξιά */}
+        <div className="max-w-[1600px] mx-auto px-6 py-4 flex items-center justify-center md:justify-center">
+          
+          {/* Desktop Links - Μένουν στο κέντρο */}
           <div className="hidden md:flex items-center justify-center gap-8 lg:gap-12 w-full">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
@@ -117,7 +118,6 @@ export default function Navigation() {
                   }`}></span>
                 </Link>
 
-                {/* ΤΟ DROPDOWN ΠΟΥ ΑΝΟΙΓΕΙ ΑΠΟ ΚΑΤΩ */}
                 {link.submenu && (
                   <div className="absolute left-1/2 -translate-x-1/2 top-full w-max min-w-[200px] pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
                     <div className="bg-white border border-slate-100 shadow-xl rounded-md py-2 overflow-hidden">
@@ -137,16 +137,19 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="md:hidden flex items-center gap-2 text-slate-900 cursor-pointer group p-2 px-4 rounded-full border border-slate-100"
-          >
-            <span className="text-[10px] font-bold uppercase tracking-widest">
-              {isMenuOpen ? "ΚΛΕΙΣΙΜΟ" : "ΜΕΝΟΥ"}
-            </span>
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Mobile Menu Button - Τώρα είναι μέσα στο flex container και σπρώχνεται δεξιά */}
+          <div className="flex md:hidden w-full justify-end">
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+              className="flex items-center gap-2 text-slate-900 cursor-pointer group p-2 px-4 rounded-full border border-slate-100 bg-white shadow-sm"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-widest">
+                {isMenuOpen ? "ΚΛΕΙΣΙΜΟ" : "ΜΕΝΟΥ"}
+              </span>
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+
         </div>
       </nav>
 

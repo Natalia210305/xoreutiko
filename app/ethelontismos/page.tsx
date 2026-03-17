@@ -54,7 +54,7 @@ export default function Ethelontismos() {
           {/* Χρήση Link για τη σωστή διαδρομή */}
           {/* Χρήση Link με Hash για να ανοίξει το pop-up στην αρχική σελίδα */}
           <Link 
-            href="/#contact" 
+            href="/epikoinonia" 
             className="inline-block bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-200 transition-all cursor-pointer"
           >
             Επικοινωνία

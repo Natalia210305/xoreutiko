@@ -34,7 +34,7 @@ export default function Synergasia() {
           <MessageCircle className="w-10 h-10 mx-auto mb-6 opacity-50" />
           <h2 className="text-3xl font-bold mb-4 italic">Έχετε κάποια πρόταση;</h2>
           <p className="text-xl mb-8 opacity-80 italic">Θα χαρούμε να συζητήσουμε κάθε ιδέα για κοινή δράση.</p>
-          <Link href="/#contact" className="inline-block bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-200 transition-all">
+          <Link href="/epikoinonia" className="inline-block bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-200 transition-all">
             Εποικοινωνία
           </Link>
         </div>
