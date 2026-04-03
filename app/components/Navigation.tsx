@@ -18,6 +18,7 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
   const pathname = usePathname()
+  const [mobileSubOpen, setMobileSubOpen] = useState<string | null>(null)
 
   useEffect(() => {
     if (window.location.hash === '#contact') {
@@ -155,13 +156,52 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center space-y-8 text-3xl shadow-2xl animate-in fade-in zoom-in duration-300 text-slate-900 font-sans md:hidden">
-          <button onClick={closeMenu} className="absolute top-10 right-10 p-2"><X size={32}/></button>
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} onClick={closeMenu} className="hover:text-blue-600 transition-colors cursor-pointer">
-              {link.name}
-            </Link>
-          ))}
+        <div className="fixed inset-0 bg-white z-[60] flex flex-col p-6 pt-24 animate-in fade-in zoom-in duration-300 text-slate-900 font-sans md:hidden overflow-y-auto">
+          <button onClick={closeMenu} className="absolute top-8 right-8 p-2 text-slate-500">
+            <X size={32}/>
+          </button>
+          
+          <div className="flex flex-col w-full max-w-sm mx-auto">
+            {navLinks.map((link) => (
+              <div key={link.name} className="flex flex-col border-b border-slate-50">
+                <div className="flex items-center justify-between py-4">
+                  <Link 
+                    href={link.href} 
+                    onClick={closeMenu} 
+                    className="text-2xl font-medium hover:text-blue-600 transition-colors italic"
+                  >
+                    {link.name}
+                  </Link>
+                  
+                  {/* Αν υπάρχει υπομενού, εμφάνισε το βελάκι */}
+                  {link.submenu && (
+                    <button 
+                      onClick={() => setMobileSubOpen(mobileSubOpen === link.name ? null : link.name)}
+                      className={`p-2 transition-transform duration-300 ${mobileSubOpen === link.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`}
+                    >
+                      <ChevronDown size={24} />
+                    </button>
+                  )}
+                </div>
+
+                {/* Εμφάνιση των υποεπιλογών αν το μενού είναι ανοιχτό */}
+                {link.submenu && mobileSubOpen === link.name && (
+                  <div className="flex flex-col bg-slate-50 rounded-xl mb-4 py-2 animate-in slide-in-from-top-2 duration-300">
+                    {link.submenu.map((sub) => (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        onClick={closeMenu}
+                        className="px-6 py-3 text-lg text-slate-600 hover:text-blue-600 border-l-2 border-transparent hover:border-blue-600 transition-all"
+                      >
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
