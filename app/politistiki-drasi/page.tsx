@@ -16,7 +16,6 @@ import {
   Sparkles,
   BookOpen
 } from 'lucide-react'
-
 const ebGaramond = EB_Garamond({ 
   subsets: ['latin', 'greek'],
   weight: ['400', '700'],
@@ -76,7 +75,7 @@ function ImageSlider({ images }: { images: string[] }) {
 
 export default function PolitistikiDrasi() {
   const [openSection, setOpenSection] = useState<string | null>(null);
-
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const toggleSection = (id: string) => {
     setOpenSection(openSection === id ? null : id);
   };
@@ -395,36 +394,69 @@ export default function PolitistikiDrasi() {
             </div>
           </div>
         </div>
-        {/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΕΚΔΗΛΩΣΕΩΝ --- */}
-<div className="w-full mt-12">
-  
-  {/* 1. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΥΠΟΛΟΓΙΣΤΗ (Grid με 3 εικόνες) */}
-  <div className="hidden md:grid grid-cols-3 gap-6">
-    {['/ekdilosi1.jpg', '/ekdilosi2.jpg', '/ekdilosi3.jpg'].map((src, index) => (
-      <div key={index} className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100">
-        <NextImage 
-          src={src} 
-          alt={`Εκδήλωση ${index + 1}`} 
-          fill 
-          className="object-cover hover:scale-105 transition-transform duration-500" 
-        />
-      </div>
-    ))}
-  </div>
-
-  {/* 2. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΚΙΝΗΤΟ (Slider - μία μία εικόνα) */}
-  <div className="block md:hidden">
-    <ImageSlider 
-      images={[
-        '/ekdilosi1.jpg', 
-        '/ekdilosi2.jpg', 
-        '/ekdilosi3.jpg'
-      ]} 
-    />
-  </div>
-
-</div>
       </section>
+      {/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΕΚΔΗΛΩΣΕΩΝ --- */}
+        <div className="w-full mt-12">
+          
+          {/* 1. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΥΠΟΛΟΓΙΣΤΗ (Grid με 3 εικόνες) */}
+          <div className="hidden md:grid grid-cols-3 gap-6">
+            {['/ekdilosi1.jpg', '/ekdilosi2.jpg', '/ekdilosi3.jpg'].map((src, index) => (
+              <div 
+                key={index} 
+                onClick={() => setSelectedImg(src)} 
+                className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 cursor-zoom-in"
+              >
+                <NextImage 
+                  src={src} 
+                  alt={`Εκδήλωση ${index + 1}`} 
+                  fill 
+                  className="object-cover transition-transform duration-500 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+              </div>
+            ))}
+          </div>
+
+          {/* 2. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΚΙΝΗΤΟ (Slider) */}
+          <div className="block md:hidden">
+            {/* Τυλίγουμε το slider με ένα div για να πιάνει το κλικ της μεγέθυνσης */}
+            <div onClick={() => {
+              // Εδώ μπορείς να ορίσεις να ανοίγει η τρέχουσα εικόνα. 
+              // Για απλότητα, το slider στο κινητό θα δείχνει τις φωτό, 
+              // και μπορείς να προσθέσεις ένα icon μεγέθυνσης αν θες.
+            }}>
+              <ImageSlider 
+                images={[
+                  '/ekdilosi1.jpg', 
+                  '/ekdilosi2.jpg', 
+                  '/ekdilosi3.jpg'
+                ]} 
+              />
+            </div>
+          </div>
+
+          {/* --- LIGHTBOX (MODAL) ΓΙΑ ΜΕΓΕΘΥΝΣΗ --- */}
+          {selectedImg && (
+            <div 
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in duration-300"
+              onClick={() => setSelectedImg(null)}
+            >
+              <button className="absolute top-6 right-6 text-white hover:scale-110 transition-transform p-2">
+                {/* Χρησιμοποιούμε ένα απλό X ή το icon αν το έχεις */}
+                <span className="text-4xl font-light">&times;</span>
+              </button>
+              <div className="relative w-full h-full max-w-5xl max-h-[85vh]">
+                <NextImage 
+                  src={selectedImg} 
+                  alt="Μεγάλη προβολή" 
+                  fill 
+                  className="object-contain" 
+                  unoptimized
+                />
+              </div>
+            </div>
+          )}
+        </div>
     </main>
   )
 }

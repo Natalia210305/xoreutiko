@@ -5,6 +5,7 @@ import { EB_Garamond } from 'next/font/google'
 import Image from 'next/image'
 import { Newspaper, Book, Music, ChevronRight, FileText, ChevronDown, X } from 'lucide-react'
 
+
 const ebGaramond = EB_Garamond({ 
   subsets: ['latin', 'greek'],
   weight: ['400', '700'],
