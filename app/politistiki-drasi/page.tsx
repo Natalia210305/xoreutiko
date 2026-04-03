@@ -316,15 +316,31 @@ export default function PolitistikiDrasi() {
           <h2 className="text-4xl md:text-5xl font-bold italic">Χορευτικό & Χορωδία</h2>
         </div>
         
-        <div className="w-full bg-white rounded-[3rem] overflow-hidden border border-slate-100 shadow-sm">
-          <div className="relative w-full h-[250px] md:h-[400px] bg-slate-50">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {/* ΠΡΩΤΗ ΦΩΤΟΓΡΑΦΙΑ (ΑΡΙΣΤΕΡΑ) */}
+          <div 
+            className="relative h-[250px] md:h-[400px] bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm cursor-zoom-in group"
+            onClick={() => setSelectedImg("/ΧΟΡΕΥΤΙΚΟ.jpg")}
+          >
             <NextImage 
               src="/ΧΟΡΕΥΤΙΚΟ.jpg" 
-              alt="Χορευτικό Αδελφότητας" 
+              alt="Χορευτικό 1" 
               fill
               priority
-              className="object-contain p-4"
-              sizes="(max-width: 768px) 100vw, 800px"
+              className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          {/* ΔΕΥΤΕΡΗ ΦΩΤΟΓΡΑΦΙΑ (ΔΕΞΙΑ) */}
+          <div 
+            className="relative h-[250px] md:h-[400px] bg-slate-50 rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm cursor-zoom-in group"
+            onClick={() => setSelectedImg("/ΧΟΡΕΥΤΙΚΟ2.jpg")} // <--- ΕΔΩ ΒΑΛΕ ΤΟ ΟΝΟΜΑ ΤΗΣ 2ης ΦΩΤΟΓΡΑΦΙΑΣ
+          >
+            <NextImage 
+              src="/ΧΟΡΕΥΤΙΚΟ2.jpg" // <--- ΕΔΩ ΒΑΛΕ ΤΟ ΟΝΟΜΑ ΤΗΣ 2ης ΦΩΤΟΓΡΑΦΙΑΣ
+              alt="Χορευτικό 2" 
+              fill
+              className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           
