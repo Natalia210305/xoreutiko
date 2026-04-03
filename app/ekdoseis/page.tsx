@@ -196,27 +196,72 @@ export default function Ekdoseis() {
                 Παραθέτουμε το επετειακό 100ο φύλλο, στο οποίο πραγματοποιήθηκε καταγραφή και ταξινόμηση όλων των άρθρων που είχαν δημοσιευθεί έως τότε σε θεματικές ενότητες.
               </p>
             </div>
-            <div className="pt-6 flex flex-col md:flex-row items-center justify-center gap-6">
-              <div className="relative w-[320px] h-[100px] rounded-2xl overflow-hidden bg-white border border-slate-200 p-4 shadow-sm flex items-center justify-center">
-                <Image src="/ΕΦΗΜΕΡΙΔΑ.png" alt="Λογότυπο Χαιρετήματα" fill className="object-contain p-2" unoptimized />
-              </div>
-              <a 
-                href={`/${encodeURIComponent('ΧΑΙΡΕΤΗΜΑΤΑ-ΦΥΛΛΟ 100.pdf')}`} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-[320px] h-[100px] flex items-center justify-center gap-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 transition-all shadow-lg group cursor-pointer"
-              >
-                <FileText size={28} className="opacity-70 shrink-0" />
-                <div className="text-left">
-                  <span className="block text-[10px] uppercase tracking-widest opacity-60 font-bold mb-1">Άνοιγμα Αρχείου</span>
-                  <span className="text-base font-bold leading-tight">Επετειακό Φύλλο 100</span>
-                </div>
-                <ChevronRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
-              </a>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full items-stretch">
+        
+        {/* ΑΡΙΣΤΕΡΗ ΠΛΕΥΡΑ: ΛΟΓΟΤΥΠΟ & USB (ΕΝΑ ΤΣΙΚ ΠΙΟ ΜΙΚΡΑ) */}
+        <div className="flex flex-col gap-6 items-center lg:items-start justify-between">
+          
+          {/* Πλαίσιο Λογότυπου */}
+          <div className="relative w-full max-w-[380px] aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200 p-8 shadow-sm flex items-center justify-center group cursor-zoom-in"
+               onClick={() => setZoomedImage("/ΕΦΗΜΕΡΙΔΑ.png")}>
+            <Image 
+              src="/ΕΦΗΜΕΡΙΔΑ.png" 
+              alt="Λογότυπο Χαιρετήματα" 
+              fill 
+              className="object-contain p-4 transition-transform duration-500 group-hover:scale-110" 
+              unoptimized 
+            />
+          </div>
+
+          {/* Πλαίσιο USB */}
+          <div className="relative w-full max-w-[380px] aspect-square rounded-3xl overflow-hidden bg-white border border-slate-200 p-8 shadow-sm flex items-center justify-center group cursor-zoom-in"
+               onClick={() => setZoomedImage("/USB.jpg")}>
+            <Image 
+              src="/USB.jpg" 
+              alt="Συλλεκτικό USB" 
+              fill 
+              className="object-contain p-4 transition-transform duration-500 group-hover:scale-110" 
+              unoptimized 
+            />
           </div>
         </div>
-      </section>
+
+        {/* ΔΕΞΙΑ ΠΛΕΥΡΑ: ΕΞΩΦΥΛΛΟ (Μεγάλο) */}
+        <div className="w-full flex justify-center lg:justify-end">
+          <div 
+            className="relative w-full max-w-[500px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 cursor-zoom-in group bg-white"
+            onClick={() => setZoomedImage("/exofilo.png")}
+          >
+            <Image 
+              src="/exofilo.png" 
+              alt="Ολόκληρο Εξώφυλλο Εφημερίδας" 
+              fill 
+              className="object-contain transition-transform duration-500 group-hover:scale-105" 
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ΚΑΤΩ ΜΕΡΟΣ: ΤΟ ΜΠΛΕ ΚΟΥΜΠΙ ΣΤΗ ΜΕΣΗ */}
+      <div className="mt-20 w-full flex justify-center">
+        <a 
+          href={`/${encodeURIComponent('ΧΑΙΡΕΤΗΜΑΤΑ-ΦΥΛΛΟ 100.pdf')}`} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-full max-w-[450px] h-[100px] flex items-center justify-center gap-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 transition-all shadow-lg group cursor-pointer"
+        >
+          <FileText size={28} className="opacity-70 shrink-0" />
+          <div className="text-left">
+            <span className="block text-[10px] uppercase tracking-widest opacity-60 font-bold mb-1">Άνοιγμα Αρχείου</span>
+            <span className="text-lg font-bold leading-tight">Επετειακό Φύλλο 100</span>
+          </div>
+          <ChevronRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* 2. ΒΙΒΛΙΑ & ΛΕΥΚΩΜΑΤΑ */}
       <section id="vivlia" className="mb-32 scroll-mt-40">
