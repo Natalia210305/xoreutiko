@@ -395,43 +395,35 @@ export default function PolitistikiDrasi() {
             </div>
           </div>
         </div>
-        {/* ΠΡΟΣΘΗΚΗ: Πλέγμα με 3 Εικόνες Εκδηλώσεων */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-          
-          {/* Εικόνα 1 */}
-          <div className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50">
-            <NextImage 
-              src="/ekdilosi1.jpg" 
-              alt="Εκδήλωση Αδελφότητας 1" 
-              fill 
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-          </div>
+        {/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΕΚΔΗΛΩΣΕΩΝ --- */}
+<div className="w-full mt-12">
+  
+  {/* 1. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΥΠΟΛΟΓΙΣΤΗ (Grid με 3 εικόνες) */}
+  <div className="hidden md:grid grid-cols-3 gap-6">
+    {['/ekdilosi1.jpg', '/ekdilosi2.jpg', '/ekdilosi3.jpg'].map((src, index) => (
+      <div key={index} className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100">
+        <NextImage 
+          src={src} 
+          alt={`Εκδήλωση ${index + 1}`} 
+          fill 
+          className="object-cover hover:scale-105 transition-transform duration-500" 
+        />
+      </div>
+    ))}
+  </div>
 
-          {/* Εικόνα 2 */}
-          <div className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50">
-            <NextImage 
-              src="/ekdilosi2.jpg" 
-              alt="Εκδήλωση Αδελφότητας 2" 
-              fill 
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-          </div>
+  {/* 2. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΚΙΝΗΤΟ (Slider - μία μία εικόνα) */}
+  <div className="block md:hidden">
+    <ImageSlider 
+      images={[
+        '/ekdilosi1.jpg', 
+        '/ekdilosi2.jpg', 
+        '/ekdilosi3.jpg'
+      ]} 
+    />
+  </div>
 
-          {/* Εικόνα 3 */}
-          <div className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50">
-            <NextImage 
-              src="/ekdilosi3.jpg" 
-              alt="Εκδήλωση Αδελφότητας 3" 
-              fill 
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-          </div>
-
-        </div>
+</div>
       </section>
     </main>
   )
