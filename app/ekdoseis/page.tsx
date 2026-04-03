@@ -15,6 +15,8 @@ const ebGaramond = EB_Garamond({
 export default function Ekdoseis() {
   const [openBook, setOpenBook] = useState<number | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  const [currentTragoudiIdx, setCurrentTragoudiIdx] = useState(0);
+  const tragoudiaImages = ["/tragoudi1.jpg", "/tragoudi2.jpg", "/tragoudi3.jpg"]; // Τα ονόματα των αρχείων σου 
 
   const books = [
     { 
@@ -260,7 +262,75 @@ export default function Ekdoseis() {
           <Music className="absolute -right-10 -bottom-10 opacity-10 w-64 h-64" />
         </div>
       </section>
+{/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΤΡΑΓΟΥΔΙΩΝ (GRID ΣΕ PC / SLIDER ΣΕ ΚΙΝΗΤΟ) --- */}
+<div className="w-full mt-10">
+  
+  {/* 1. ΕΜΦΑΝΙΣΗ ΣΤΟΝ ΥΠΟΛΟΓΙΣΤΗ (3 Φωτογραφίες στη σειρά) */}
+  <div className="hidden md:grid grid-cols-3 gap-6">
+    {tragoudiaImages.map((src, idx) => (
+      <div 
+        key={idx} 
+        onClick={() => setZoomedImage(src)}
+        /* bg-white/5 για να υπάρχει ένα απαλό γέμισμα αν η φωτό δεν είναι τέλειο τετράγωνο */
+        className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in hover:scale-105 transition-transform duration-500 bg-white/5 shadow-2xl"
+      >
+        <Image 
+          src={src} 
+          alt={`Εξώφυλλο ${idx + 1}`} 
+          fill 
+          /* ΑΛΛΑΓΗ: object-contain και p-2 για να φαίνεται ΟΛΟΚΛΗΡΗ η εικόνα */
+          className="object-contain p-2" 
+          unoptimized 
+        />
+      </div>
+    ))}
+  </div>
 
+  {/* 2. ΕΜΦΑΝΙΣΗ ΣΤΟ ΚΙΝΗΤΟ (Slider - μία μία εικόνα) */}
+  <div className="block md:hidden text-center">
+    <div className="relative max-w-[260px] mx-auto">
+      <div 
+        className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl cursor-zoom-in bg-white/5"
+        onClick={() => setZoomedImage(tragoudiaImages[currentTragoudiIdx])}
+      >
+        <Image 
+          src={tragoudiaImages[currentTragoudiIdx]} 
+          alt="Εξώφυλλο κινητό" 
+          fill 
+          /* ΑΛΛΑΓΗ: object-contain και p-2 για να φαίνεται ΟΛΟΚΛΗΡΗ η εικόνα */
+          className="object-contain p-2" 
+          unoptimized 
+        />
+      </div>
+
+      {/* Κουμπιά πλοήγησης Slider για το κινητό */}
+      <div className="flex items-center justify-center gap-6 mt-6">
+        <button 
+          onClick={() => setCurrentTragoudiIdx(prev => prev === 0 ? tragoudiaImages.length - 1 : prev - 1)}
+          className="p-2 bg-white/10 rounded-full active:bg-white/30"
+        >
+          <ChevronRight className="rotate-180 text-white" size={24} />
+        </button>
+        
+        <div className="flex gap-2">
+          {tragoudiaImages.map((_, i) => (
+            <div 
+              key={i} 
+              className={`w-2 h-2 rounded-full transition-all ${currentTragoudiIdx === i ? 'bg-white w-4' : 'bg-white/20'}`} 
+            />
+          ))}
+        </div>
+
+        <button 
+          onClick={() => setCurrentTragoudiIdx(prev => prev === tragoudiaImages.length - 1 ? 0 : prev + 1)}
+          className="p-2 bg-white/10 rounded-full active:bg-white/30"
+        >
+          <ChevronRight className="text-white" size={24} />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
       {/* LIGHTBOX ΓΙΑ ΜΕΓΕΘΥΝΣΗ */}
       {zoomedImage && (
         <div className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4 md:p-10 animate-in fade-in zoom-in duration-300" onClick={() => setZoomedImage(null)}>
