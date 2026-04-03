@@ -22,8 +22,8 @@ const ebGaramond = EB_Garamond({
   style: ['normal', 'italic']
 })
 
-// --- ΠΡΟΣΘΗΚΗ ΤΟΥ IMAGESLIDER ΠΟΥ ΕΛΕΙΠΕ ---
-function ImageSlider({ images }: { images: string[] }) {
+
+function ImageSlider({ images, onImageClick }: { images: string[], onImageClick: (src: string) => void }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = (e: React.MouseEvent) => {
@@ -37,37 +37,49 @@ function ImageSlider({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="relative w-full h-[300px] md:h-[450px] bg-slate-50 rounded-3xl overflow-hidden group shadow-md border border-slate-100">
-      <NextImage 
-        key={`slide-${currentIndex}`}
-        src={images[currentIndex]} 
-        alt="Εκθέματα Μουσείου" 
-        fill 
-        className="object-contain p-2" 
-        priority={true}
-        unoptimized={true}
-      />
-      
-      {/* Αριστερό Βέλος */}
-      <button 
-        onClick={prevSlide} 
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md z-10 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
+    <div className="relative w-full max-w-4xl mx-auto group">
+      {/* Πλαίσιο Εικόνας */}
+      <div 
+        className="relative aspect-[16/9] md:aspect-[21/9] bg-slate-50 rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 cursor-zoom-in"
+        onClick={() => onImageClick(images[currentIndex])}
       >
-        <ChevronRight className="rotate-180 text-slate-900 w-5 h-5 md:w-6 md:h-6" />
-      </button>
+        <NextImage 
+          key={`slide-${currentIndex}`}
+          src={images[currentIndex]} 
+          alt="Εκδήλωση" 
+          fill 
+          className="object-contain p-2 md:p-4 transition-all duration-500" 
+          priority
+          unoptimized
+        />
 
-      {/* Δεξί Βέλος */}
-      <button 
-        onClick={nextSlide} 
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow-md z-10 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
-      >
-        <ChevronRight className="text-slate-900 w-5 h-5 md:w-6 md:h-6" />
-      </button>
+        {/* Αριστερό Βέλος */}
+        <button 
+          onClick={prevSlide} 
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full shadow-lg z-10 hover:scale-110 active:scale-95 transition-all border border-slate-200"
+        >
+          <ChevronRight className="rotate-180 text-slate-900 w-6 h-6" />
+        </button>
 
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-        {images.map((_, idx) => (
-          <div key={idx} className={`w-1.5 h-1.5 rounded-full ${currentIndex === idx ? 'bg-slate-900 w-4' : 'bg-slate-300'}`} />
-        ))}
+        {/* Δεξί Βέλος */}
+        <button 
+          onClick={nextSlide} 
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 p-3 rounded-full shadow-lg z-10 hover:scale-110 active:scale-95 transition-all border border-slate-200"
+        >
+          <ChevronRight className="text-slate-900 w-6 h-6" />
+        </button>
+
+        {/* Τελείες (Dots) */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/10 backdrop-blur-md p-2 rounded-full">
+          {images.map((_, idx) => (
+            <div 
+              key={idx} 
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentIndex === idx ? 'bg-white w-6' : 'bg-white/50 w-2'
+              }`} 
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -396,67 +408,34 @@ export default function PolitistikiDrasi() {
         </div>
       </section>
       {/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΕΚΔΗΛΩΣΕΩΝ --- */}
-        <div className="w-full mt-12">
-          
-          {/* 1. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΥΠΟΛΟΓΙΣΤΗ (Grid με 3 εικόνες) */}
-          <div className="hidden md:grid grid-cols-3 gap-6">
-            {['/ekdilosi1.jpg', '/ekdilosi2.jpg', '/ekdilosi3.jpg'].map((src, index) => (
-              <div 
-                key={index} 
-                onClick={() => setSelectedImg(src)} 
-                className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 cursor-zoom-in"
-              >
-                <NextImage 
-                  src={src} 
-                  alt={`Εκδήλωση ${index + 1}`} 
-                  fill 
-                  className="object-cover transition-transform duration-500 group-hover:scale-110" 
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-              </div>
-            ))}
-          </div>
+      <div className="w-full mt-12 px-2">
+        <ImageSlider 
+          images={[
+            '/ekdilosi1.jpg', 
+            '/ekdilosi2.jpg', 
+            '/ekdilosi3.jpg'
+          ]} 
+          onImageClick={(src) => setSelectedImg(src)}
+        />
 
-          {/* 2. ΕΜΦΑΝΙΣΗ ΜΟΝΟ ΣΕ ΚΙΝΗΤΟ (Slider) */}
-          <div className="block md:hidden">
-            {/* Τυλίγουμε το slider με ένα div για να πιάνει το κλικ της μεγέθυνσης */}
-            <div onClick={() => {
-              // Εδώ μπορείς να ορίσεις να ανοίγει η τρέχουσα εικόνα. 
-              // Για απλότητα, το slider στο κινητό θα δείχνει τις φωτό, 
-              // και μπορείς να προσθέσεις ένα icon μεγέθυνσης αν θες.
-            }}>
-              <ImageSlider 
-                images={[
-                  '/ekdilosi1.jpg', 
-                  '/ekdilosi2.jpg', 
-                  '/ekdilosi3.jpg'
-                ]} 
+        {/* LIGHTBOX (MODAL) */}
+        {selectedImg && (
+          <div 
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in duration-300"
+            onClick={() => setSelectedImg(null)}
+          >
+            <div className="relative w-full h-full max-w-6xl max-h-[85vh]">
+              <NextImage 
+                src={selectedImg} 
+                alt="Μεγάλη προβολή" 
+                fill 
+                className="object-contain" 
+                unoptimized
               />
             </div>
           </div>
-
-          {/* --- LIGHTBOX (MODAL) ΓΙΑ ΜΕΓΕΘΥΝΣΗ --- */}
-          {selectedImg && (
-            <div 
-              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in duration-300"
-              onClick={() => setSelectedImg(null)}
-            >
-              <button className="absolute top-6 right-6 text-white hover:scale-110 transition-transform p-2">
-                {/* Χρησιμοποιούμε ένα απλό X ή το icon αν το έχεις */}
-                <span className="text-4xl font-light">&times;</span>
-              </button>
-              <div className="relative w-full h-full max-w-5xl max-h-[85vh]">
-                <NextImage 
-                  src={selectedImg} 
-                  alt="Μεγάλη προβολή" 
-                  fill 
-                  className="object-contain" 
-                  unoptimized
-                />
-              </div>
-            </div>
-          )}
-        </div>
+        )}
+      </div>
     </main>
   )
 }
