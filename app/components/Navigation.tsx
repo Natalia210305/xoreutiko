@@ -156,7 +156,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[60] flex flex-col p-6 pt-24 animate-in fade-in zoom-in duration-300 text-slate-900 font-sans md:hidden overflow-y-auto">
+        <div className={`${ebGaramond.className} fixed inset-0 bg-white z-[60] flex flex-col p-6 pt-24 animate-in fade-in zoom-in duration-300 text-slate-900 md:hidden overflow-y-auto`}>
           <button onClick={closeMenu} className="absolute top-8 right-8 p-2 text-slate-500">
             <X size={32}/>
           </button>
@@ -168,12 +168,12 @@ export default function Navigation() {
                   <Link 
                     href={link.href} 
                     onClick={closeMenu} 
-                    className="text-2xl font-medium hover:text-blue-600 transition-colors italic"
+                    /* ΑΛΛΑΓΗ: font-normal (όχι έντονα), uppercase (κεφαλαία) και tracking-widest (αποστάσεις) */
+                    className="text-xl font-normal uppercase tracking-widest hover:text-blue-600 transition-colors"
                   >
                     {link.name}
                   </Link>
                   
-                  {/* Αν υπάρχει υπομενού, εμφάνισε το βελάκι */}
                   {link.submenu && (
                     <button 
                       onClick={() => setMobileSubOpen(mobileSubOpen === link.name ? null : link.name)}
@@ -184,7 +184,6 @@ export default function Navigation() {
                   )}
                 </div>
 
-                {/* Εμφάνιση των υποεπιλογών αν το μενού είναι ανοιχτό */}
                 {link.submenu && mobileSubOpen === link.name && (
                   <div className="flex flex-col bg-slate-50 rounded-xl mb-4 py-2 animate-in slide-in-from-top-2 duration-300">
                     {link.submenu.map((sub) => (
@@ -192,7 +191,8 @@ export default function Navigation() {
                         key={sub.name}
                         href={sub.href}
                         onClick={closeMenu}
-                        className="px-6 py-3 text-lg text-slate-600 hover:text-blue-600 border-l-2 border-transparent hover:border-blue-600 transition-all"
+                        /* Κανονικά γράμματα και εδώ, λίγο πιο μικρά για να ξεχωρίζουν */
+                        className="px-6 py-3 text-[17px] text-slate-600 hover:text-blue-600 border-l-2 border-transparent hover:border-blue-600 transition-all font-normal"
                       >
                         {sub.name}
                       </Link>
@@ -204,7 +204,6 @@ export default function Navigation() {
           </div>
         </div>
       )}
-
       {/* Floating Contact Button */}
       <button 
         onClick={() => setIsContactOpen(true)}
