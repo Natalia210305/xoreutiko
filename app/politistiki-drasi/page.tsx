@@ -173,10 +173,10 @@ export default function PolitistikiDrasi() {
                 <ImageSlider 
                   images={[
                     "/xatz1.jpg",
+                    "/xatz5.jpg",
                     "/xatz2.jpg",
                     "/xatz3.jpg",
-                    "/xatz4.jpg",
-                    "/xatz5.jpg"
+                    "/xatz4.jpg"
                   ]} 
                 />
               </div>

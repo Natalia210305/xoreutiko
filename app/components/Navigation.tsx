@@ -35,7 +35,7 @@ export default function Navigation() {
       name: "Η Αδελφότητα", 
       href: "/adelfotita",
       submenu: [
-        { name: "Σκοπός Ίδρυσης", href: "/adelfotita#idrysi" },
+        { name: "Ιστορικό & Σκοπός", href: "/adelfotita#idrysi" },
         { name: "Ιδρυτικά Μέλη", href: "/adelfotita#members" },
         { name: "Διοικητικά Συμβούλια", href: "/adelfotita#ds" },
         { name: "Τιμητικές Διακρίσεις & Αναγνωρίσεις", href: "/adelfotita#awards" },

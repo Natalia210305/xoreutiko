@@ -514,7 +514,7 @@ const [currentImage, setCurrentImage] = useState(0);
           </div>
           <div className="w-full md:w-1/2 relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 bg-slate-50">
             <Image 
-              src="/ΣΕΦ.png" 
+              src="/σεφ.jpg" 
               alt="Βράβευση ΣΕΦ 2023" 
               fill 
               className="object-contain"
@@ -531,7 +531,7 @@ const [currentImage, setCurrentImage] = useState(0);
           <div className="w-full md:w-1/3 flex justify-center">
             <div className="relative w-full rounded-xl overflow-hidden shadow-lg border border-slate-200">
               <Image 
-                src="/ΓΥΦΤΟΚΑΜΠΟΣ.png" 
+                src="/βραβευση.jpg" 
                 alt="Βράβευση Γυφτόκαμπος 2024" 
                 width={600}
                 height={800}
@@ -544,9 +544,6 @@ const [currentImage, setCurrentImage] = useState(0);
 
       {/* Ενότητα: Έδρα – Ιδιόκτητοι Χώροι με Slider */}
       <section id="edra" className="scroll-mt-40 mb-16">
-        <p className="text-lg">
-          Τα γραφεία της Αδελφότητας βρίσκονται στην οδό **Ζήνωνος 30, Αθήνα, Τ.Κ. 10437**.
-        </p>
       </section>
       <section className="mb-20 pt-16 border-t border-slate-100">
         <h2 className="text-3xl font-bold border-b mb-5 italic">Έδρα – Ιδιόκτητοι Χώροι</h2>
