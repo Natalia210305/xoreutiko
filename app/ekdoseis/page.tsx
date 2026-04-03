@@ -262,7 +262,7 @@ export default function Ekdoseis() {
           <Music className="absolute -right-10 -bottom-10 opacity-10 w-64 h-64" />
         </div>
       </section>
-{/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΤΡΑΓΟΥΔΙΩΝ (GRID ΣΕ PC / SLIDER ΣΕ ΚΙΝΗΤΟ) --- */}
+{/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ (GRID ΣΕ PC / SLIDER ΣΕ ΚΙΝΗΤΟ) --- */}
 <div className="w-full mt-10">
   
   {/* 1. ΕΜΦΑΝΙΣΗ ΣΤΟΝ ΥΠΟΛΟΓΙΣΤΗ (3 Φωτογραφίες στη σειρά) */}
@@ -271,14 +271,12 @@ export default function Ekdoseis() {
       <div 
         key={idx} 
         onClick={() => setZoomedImage(src)}
-        /* bg-white/5 για να υπάρχει ένα απαλό γέμισμα αν η φωτό δεν είναι τέλειο τετράγωνο */
         className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 cursor-zoom-in hover:scale-105 transition-transform duration-500 bg-white/5 shadow-2xl"
       >
         <Image 
           src={src} 
           alt={`Εξώφυλλο ${idx + 1}`} 
           fill 
-          /* ΑΛΛΑΓΗ: object-contain και p-2 για να φαίνεται ΟΛΟΚΛΗΡΗ η εικόνα */
           className="object-contain p-2" 
           unoptimized 
         />
@@ -286,28 +284,72 @@ export default function Ekdoseis() {
     ))}
   </div>
 
-  {/* 2. ΕΜΦΑΝΙΣΗ ΣΤΟ ΚΙΝΗΤΟ (Slider - μία μία εικόνα) */}
-  <div className="block md:hidden text-center">
-    <div className="relative max-w-[260px] mx-auto">
-      <div 
-        className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl cursor-zoom-in bg-white/5"
-        onClick={() => setZoomedImage(tragoudiaImages[currentTragoudiIdx])}
-      >
-        <Image 
-          src={tragoudiaImages[currentTragoudiIdx]} 
-          alt="Εξώφυλλο κινητό" 
-          fill 
-          /* ΑΛΛΑΓΗ: object-contain και p-2 για να φαίνεται ΟΛΟΚΛΗΡΗ η εικόνα */
-          className="object-contain p-2" 
-          unoptimized 
-        />
-      </div>
+  {/* 2. ΕΜΦΑΝΙΣΗ ΣΤΟ ΚΙΝΗΤΟ (Slider με βελάκια ΠΑΝΩ στην εικόνα) */}
+<div className="block md:hidden text-center">
+  <div className="relative max-w-[280px] mx-auto group">
+    
+    {/* Πλαίσιο Εικόνας */}
+    <div 
+      className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 cursor-zoom-in"
+      onClick={() => setZoomedImage(tragoudiaImages[currentTragoudiIdx])}
+    >
+      <Image 
+        src={tragoudiaImages[currentTragoudiIdx]} 
+        alt="Εξώφυλλο" 
+        fill 
+        className="object-contain p-2" 
+        unoptimized 
+      />
 
-      {/* Κουμπιά πλοήγησης Slider για το κινητό */}
+      {/* Αριστερό Βελάκι (Positioned Absolute) */}
+      <button 
+        onClick={(e) => {
+          e.stopPropagation();
+          setCurrentTragoudiIdx(prev => prev === 0 ? tragoudiaImages.length - 1 : prev - 1);
+        }}
+        className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md z-10 active:scale-90 transition-transform"
+      >
+        <ChevronRight className="rotate-180 text-slate-900" size={20} />
+      </button>
+
+      {/* Δεξί Βέλος (Positioned Absolute) */}
+      <button 
+        onClick={(e) => {
+          e.stopPropagation();
+          setCurrentTragoudiIdx(prev => prev === tragoudiaImages.length - 1 ? 0 : prev + 1);
+        }}
+        className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-md z-10 active:scale-90 transition-transform"
+      >
+        <ChevronRight className="text-slate-900" size={20} />
+      </button>
+
+      {/* Τελείες (Dots) - Στο κάτω μέρος της εικόνας */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        {tragoudiaImages.map((_, i) => (
+          <div 
+            key={i} 
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              currentTragoudiIdx === i ? 'bg-slate-900 w-4' : 'bg-white/50 w-1.5'
+            }`} 
+          />
+        ))}
+      </div>
+    </div>
+    
+    <p className="text-white/40 text-[10px] uppercase tracking-widest mt-4">
+      Πατήστε για μεγέθυνση
+    </p>
+  </div>
+</div>
+
+      {/* ΚΟΥΜΠΙΑ ΠΛΟΗΓΗΣΗΣ (Βελάκια και Τελείες) */}
       <div className="flex items-center justify-center gap-6 mt-6">
         <button 
-          onClick={() => setCurrentTragoudiIdx(prev => prev === 0 ? tragoudiaImages.length - 1 : prev - 1)}
-          className="p-2 bg-white/10 rounded-full active:bg-white/30"
+          onClick={(e) => {
+            e.stopPropagation();
+            setCurrentTragoudiIdx(prev => prev === 0 ? tragoudiaImages.length - 1 : prev - 1);
+          }}
+          className="p-3 bg-white/10 rounded-full active:bg-white/30 border border-white/5 shadow-lg"
         >
           <ChevronRight className="rotate-180 text-white" size={24} />
         </button>
@@ -316,21 +358,22 @@ export default function Ekdoseis() {
           {tragoudiaImages.map((_, i) => (
             <div 
               key={i} 
-              className={`w-2 h-2 rounded-full transition-all ${currentTragoudiIdx === i ? 'bg-white w-4' : 'bg-white/20'}`} 
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentTragoudiIdx === i ? 'bg-white w-5' : 'bg-white/20'}`} 
             />
           ))}
         </div>
 
         <button 
-          onClick={() => setCurrentTragoudiIdx(prev => prev === tragoudiaImages.length - 1 ? 0 : prev + 1)}
-          className="p-2 bg-white/10 rounded-full active:bg-white/30"
+          onClick={(e) => {
+            e.stopPropagation();
+            setCurrentTragoudiIdx(prev => prev === tragoudiaImages.length - 1 ? 0 : prev + 1);
+          }}
+          className="p-3 bg-white/10 rounded-full active:bg-white/30 border border-white/5 shadow-lg"
         >
           <ChevronRight className="text-white" size={24} />
         </button>
       </div>
     </div>
-  </div>
-</div>
       {/* LIGHTBOX ΓΙΑ ΜΕΓΕΘΥΝΣΗ */}
       {zoomedImage && (
         <div className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4 md:p-10 animate-in fade-in zoom-in duration-300" onClick={() => setZoomedImage(null)}>
