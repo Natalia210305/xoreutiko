@@ -506,13 +506,13 @@ const [currentImage, setCurrentImage] = useState(0);
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10 items-center pt-12 border-t border-slate-100">
-          <div className="w-full md:w-1/2">
+        <div className="flex flex-col md:flex-row gap-10 items-center">
+          <div className="w-full md:w-3/5">
             <p className="text-xl italic leading-relaxed">
               <strong>2023:</strong> Στην εκδήλωση «Η πίτα του Ηπειρώτη» που οργάνωσε η <strong>Πανηπειρωτική Συνομοσπονδία Ελλάδος</strong> στις 22 Ιανουαρίου 2023 στο Στάδιο Ειρήνης και Φιλίας βραβεύτηκε η Αδελφότητα για την πολύχρονη προσφορά της στη διάσωση και διάδοση της παράδοσης του τόπου μας και της απονεμήθηκε τιμητική πλακέτα.
             </p>
           </div>
-          <div className="w-full md:w-1/2 relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 bg-slate-50">
+          <div className="w-full md:w-1/3 relative aspect-video rounded-xl overflow-hidden shadow-lg border border-slate-200 bg-slate-50">
             <Image 
               src="/σεφ.jpg" 
               alt="Βράβευση ΣΕΦ 2023" 
@@ -522,14 +522,14 @@ const [currentImage, setCurrentImage] = useState(0);
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row-reverse gap-10 items-center pt-12 border-t border-slate-50">
-          <div className="w-full md:w-1/2">
+        <div className="flex flex-col md:flex-row-reverse gap-10 items-center">
+          <div className="w-full md:w-3/4">
             <p className="text-xl italic leading-relaxed text-right">
               <strong>2024:</strong> Στα πλαίσια του <strong>43ου Ανταμώματος Σαρακατσαναίων Ηπείρου</strong> στις 3 Αυγούστου 2024, στη Σαρακατσάνικη Στάνη στον Γυφτόκαμπο Ζαγορίου, η Αδελφότητα είχε την τιμή να βραβευτεί από την Αδελφότητα Σαρακατσαναίων Ηπείρου για την πολυετή προσφορά της στη διάσωση και διάδοση της σαρακατσάνικης παράδοσης.
             </p>
           </div>
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="relative w-full rounded-xl overflow-hidden shadow-lg border border-slate-200">
+          <div className="w-full md:w-1/5 flex justify-start"> 
+            <div className="relative aspect-[3/4] w-full max-w-[200px] rounded-xl overflow-hidden shadow-md border border-slate-200">
               <Image 
                 src="/βραβευση.jpg" 
                 alt="Βράβευση Γυφτόκαμπος 2024" 
