@@ -16,7 +16,7 @@ export default function Ekdoseis() {
   const [openBook, setOpenBook] = useState<number | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const [currentTragoudiIdx, setCurrentTragoudiIdx] = useState(0);
-  const tragoudiaImages = ["/tragoudi1.jpg", "/tragoudi2.jpg", "/tragoudi3.jpg"]; // Τα ονόματα των αρχείων σου 
+  const tragoudiaImages = ["/tragoudi1.jpg", "/tragoudi2.jpg", "/tragoudi3.jpg", "USB.jpg"]; // Τα ονόματα των αρχείων σου 
 
   const books = [
     { 
@@ -313,12 +313,35 @@ export default function Ekdoseis() {
         ))}
       </div>
     </div>
-    
-    <p className="text-white/40 text-[10px] uppercase tracking-widest mt-4 text-center">
-      Πατήστε για μεγέθυνση
-    </p>
   </div>
 </div>
+{/* --- ΠΡΟΣΘΗΚΗ LIGHTBOX (MODAL) ΓΙΑ ΜΕΓΕΘΥΝΣΗ --- */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in zoom-in duration-300 backdrop-blur-sm"
+          onClick={() => setZoomedImage(null)} // Κλείσιμο με κλικ στο background
+        >
+          {/* Κουμπί Κλεισίματος (X) */}
+          <button 
+            className="absolute top-6 right-6 text-white hover:text-slate-300 hover:rotate-90 transition-all p-2 bg-slate-800 rounded-full z-[110]"
+            onClick={() => setZoomedImage(null)}
+          >
+            <X size={28} strokeWidth={2} />
+          </button>
+          
+          <div className="relative w-full h-full max-w-5xl max-h-[85vh]">
+            <Image 
+              src={zoomedImage} 
+              alt="Μεγάλη προβολή" 
+              fill 
+              className="object-contain" 
+              unoptimized 
+              priority
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      )}
     </main>
   )
 }
