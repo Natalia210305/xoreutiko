@@ -189,6 +189,7 @@ export default function PolitistikiDrasi() {
                     "/xatz3.jpg",
                     "/xatz4.jpg"
                   ]} 
+                  onImageClick={(src) => setSelectedImg(src)}
                 />
               </div>
 
