@@ -395,6 +395,43 @@ export default function PolitistikiDrasi() {
             </div>
           </div>
         </div>
+        {/* ΠΡΟΣΘΗΚΗ: Πλέγμα με 3 Εικόνες Εκδηλώσεων */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          
+          {/* Εικόνα 1 */}
+          <div className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50">
+            <NextImage 
+              src="/ekdilosi1.jpg" 
+              alt="Εκδήλωση Αδελφότητας 1" 
+              fill 
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+          </div>
+
+          {/* Εικόνα 2 */}
+          <div className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50">
+            <NextImage 
+              src="/ekdilosi2.jpg" 
+              alt="Εκδήλωση Αδελφότητας 2" 
+              fill 
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+          </div>
+
+          {/* Εικόνα 3 */}
+          <div className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-md border border-slate-100 bg-slate-50">
+            <NextImage 
+              src="/ekdilosi3.jpg" 
+              alt="Εκδήλωση Αδελφότητας 3" 
+              fill 
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+          </div>
+
+        </div>
       </section>
     </main>
   )
