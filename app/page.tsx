@@ -4,7 +4,7 @@ import { useState } from 'react' // <--- Πρόσθεσε αυτό
 import Link from 'next/link'
 import { EB_Garamond } from 'next/font/google'
 import NextImage from 'next/image'
-import { ChevronRight, X } from 'lucide-react' // <--- Πρόσθεσε αυτά
+import { Maximize2, X } from 'lucide-react' // <--- Πρόσθεσε αυτά
 
 const ebGaramond = EB_Garamond({ 
   subsets: ['latin', 'greek'],
@@ -116,7 +116,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
                 <div className="bg-white/90 p-4 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 shadow-xl">
-                  <ChevronRight size={24} className="text-slate-900" />
+                  <Maximize2 size={24} className="text-slate-900" />
                 </div>
               </div>
             </div>
