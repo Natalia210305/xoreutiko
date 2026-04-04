@@ -67,7 +67,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      <footer className="mt-32 py-12 border-t border-slate-100 text-center">
+      <footer className="mt-15 py-12 border-t border-slate-100 text-center">
         <p className="text-slate-500 text-lg md:text-xl italic">
           Σχεδιασμός & Ανάπτυξη Ιστοσελίδας: <span className="text-slate-700 font-bold not-italic">Μπάρκα Ναταλία</span>
         </p>
