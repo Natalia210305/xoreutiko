@@ -1,7 +1,10 @@
 'use client'
 
+import { useState } from 'react' // <--- Πρόσθεσε αυτό
 import Link from 'next/link'
 import { EB_Garamond } from 'next/font/google'
+import NextImage from 'next/image'
+import { ChevronRight, X } from 'lucide-react' // <--- Πρόσθεσε αυτά
 
 const ebGaramond = EB_Garamond({ 
   subsets: ['latin', 'greek'],
@@ -10,6 +13,17 @@ const ebGaramond = EB_Garamond({
 })
 
 export default function Home() {
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  // Εδώ προσθέτεις όλες τις 42 φωτογραφίες σου
+  const allImages = [
+    '/img1.jpg', '/img2.jpg', '/img3.jpg', '/img4.jpg', 
+    '/img5.jpg', '/img6.jpg', '/img7.jpg', '/img8.jpg',
+    '/img9.jpg', '/img10.jpg', '/img11.jpg', '/img12.jpg',
+    // ... συνέχισε τη λίστα μέχρι το 42
+  ];
+  const visibleImages = showAll ? allImages : allImages.slice(0, 8);
   return (
     <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
       
@@ -78,6 +92,75 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* 2. ΕΝΟΤΗΤΑ GALLERY */}
+      <section className="mt-32 pb-20 border-t border-slate-100 pt-20">
+        <div className="text-center mb-16">
+          <h3 className="text-4xl md:text-6xl font-bold italic mb-4">Φωτογραφίες Αδελφότητας</h3>
+          <div className="w-24 h-1 bg-slate-900 mx-auto opacity-20"></div>
+        </div>
+
+        <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6 px-4">
+          {visibleImages.map((src, idx) => (
+            <div 
+              key={idx} 
+              className="relative break-inside-avoid rounded-3xl overflow-hidden cursor-zoom-in group border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 bg-slate-50"
+              onClick={() => setSelectedImg(src)}
+            >
+              <NextImage 
+                src={src} 
+                alt={`Gallery image ${idx + 1}`}
+                width={600}
+                height={800}
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+                <div className="bg-white/90 p-4 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 shadow-xl">
+                  <ChevronRight size={24} className="text-slate-900" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {!showAll && allImages.length > 8 && (
+          <div className="mt-16 flex justify-center">
+            <button 
+              onClick={() => setShowAll(true)}
+              className="bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-900 transition-all shadow-xl hover:scale-105 active:scale-95"
+            >
+              Δείτε περισσότερες φωτογραφίες ({allImages.length - 8})
+            </button>
+          </div>
+        )}
+      </section>
+
+      {/* 3. LIGHTBOX (MODAL) */}
+      {selectedImg && (
+        <div 
+          className="fixed inset-0 z-[500] flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in duration-300"
+          onClick={() => setSelectedImg(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white hover:scale-110 transition-transform p-3 bg-white/10 rounded-full z-[510]"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImg(null);
+            }}
+          >
+            <X size={32} />
+          </button>
+          <div className="relative w-full h-full max-w-6xl max-h-[85vh]">
+            <NextImage 
+              src={selectedImg} 
+              alt="Μεγάλη προβολή" 
+              fill 
+              className="object-contain" 
+              unoptimized
+            />
+          </div>
+        </div>
+      )}
     </main>
   )
 }
