@@ -13,16 +13,13 @@ const ebGaramond = EB_Garamond({
 })
 
 export default function Home() {
-  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+ const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  // Εδώ προσθέτεις όλες τις 42 φωτογραφίες σου
-  const allImages = [
-    '/img1.jpg', '/img2.jpg', '/img3.jpg', '/img4.jpg', 
-    '/img5.jpg', '/img6.jpg', '/img7.jpg', '/img8.jpg',
-    '/img9.jpg', '/img10.jpg', '/img11.jpg', '/img12.jpg',
-    // ... συνέχισε τη λίστα μέχρι το 42
-  ];
+  // ΑΥΤΟ ΦΤΑΝΕΙ: Δημιουργεί αυτόματα τη λίστα 1-42 χωρίς να τις γράφεις μία-μία
+  const allImages = Array.from({ length: 34 }, (_, i) => `/img${i + 1}.jpg`);
+
+  // Υπολογίζει ποιες θα φαίνονται (8 ή όλες)
   const visibleImages = showAll ? allImages : allImages.slice(0, 8);
   return (
     <main className={`${ebGaramond.className} max-w-[1600px] mx-auto p-6 md:p-20 text-slate-900 bg-white min-h-screen`}>      
@@ -129,7 +126,7 @@ export default function Home() {
               onClick={() => setShowAll(true)}
               className="bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-900 transition-all shadow-xl hover:scale-105 active:scale-95"
             >
-              Δείτε περισσότερες φωτογραφίες ({allImages.length - 8})
+              Δείτε περισσότερες φωτογραφίες ({allImages.length - 0})
             </button>
           </div>
         )}
