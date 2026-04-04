@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { EB_Garamond } from 'next/font/google'
 import Image from 'next/image'
-import { Newspaper, Book, Music, ChevronRight, FileText, ChevronDown, X } from 'lucide-react'
+import { Newspaper, Book, Music, ChevronRight, FileText, ChevronDown, X, Maximize2 } from 'lucide-react'
 
 
 const ebGaramond = EB_Garamond({ 
@@ -16,7 +16,7 @@ export default function Ekdoseis() {
   const [openBook, setOpenBook] = useState<number | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const [currentTragoudiIdx, setCurrentTragoudiIdx] = useState(0);
-  const tragoudiaImages = ["/tragoudi1.jpg", "/tragoudi2.jpg", "/tragoudi3.jpg", "USB.jpg"]; // Τα ονόματα των αρχείων σου 
+  const tragoudiaImages = ["/tragoudi1.jpg", "/tragoudi2.jpg", "/tragoudi3.jpg", "USB.jpg"]; 
 
   const books = [
     { 
@@ -298,7 +298,7 @@ export default function Ekdoseis() {
           <div className="relative z-10 flex flex-col items-center max-w-3xl mx-auto text-center space-y-8">
             <h3 className="text-3xl md:text-4xl font-bold italic">«Απ’ τα τραγούδια του γάμου μας»</h3>
             <p className="text-xl opacity-65 italic leading-relaxed">
-              Νο.1 (1984), Νο.2 (1985)
+              No.1 (1984), No.2 (1985)
             </p>
             <p className="text-xl opacity-85 italic leading-relaxed">
               Το 1984 η Αδελφότητα εξέδωσε σε κασέτα και αργότερα σε CD και USB τα τραγούδια του σαρακατσάνικου γάμου, τραγουδισμένα από πολυφωνικό συγκρότημα μελών της, όπως ακριβώς τραγουδιόνταν στους παραδοσιακούς γάμους. Το 1985 ακολούθησε δεύτερη έκδοση με νέο κύκλο τραγουδιών.
@@ -307,66 +307,77 @@ export default function Ekdoseis() {
           <Music className="absolute -right-10 -bottom-10 opacity-10 w-64 h-64" />
         </div>
       </section>
-{/* --- ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΤΡΑΓΟΥΔΙΩΝ (SLIDER ΠΑΝΤΟΥ) --- */}
-<div className="w-full mt-10">
-  <div className="relative max-w-[400px] mx-auto group">
-    
-    {/* Πλαίσιο Εικόνας */}
-    <div 
-      className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 cursor-zoom-in"
-      onClick={() => setZoomedImage(tragoudiaImages[currentTragoudiIdx])}
-    >
-      <Image 
-        src={tragoudiaImages[currentTragoudiIdx]} 
-        alt="Εξώφυλλο" 
-        fill 
-        className="object-contain p-4 transition-all duration-500" 
-        unoptimized 
-      />
 
-      {/* Αριστερό Βέλακι (Πάνω στην εικόνα) */}
-      <button 
-        onClick={(e) => {
-          e.stopPropagation();
-          setCurrentTragoudiIdx(prev => prev === 0 ? tragoudiaImages.length - 1 : prev - 1);
-        }}
-        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg z-10 hover:scale-110 active:scale-95 transition-all"
-      >
-        <ChevronRight className="rotate-180 text-slate-900" size={20} />
-      </button>
+      {/* ΕΝΟΤΗΤΑ ΕΙΚΟΝΩΝ ΤΡΑΓΟΥΔΙΩΝ (GRID ΣΕ DESKTOP / SLIDER ΣΕ MOBILE) */}
+      <div className="w-full mt-10">
+        {/* DESKTOP VERSION: GRID ΣΕ ΣΕΙΡΑ */}
+        <div className="hidden md:grid grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {tragoudiaImages.map((src, idx) => (
+            <div key={idx} 
+                 className="relative aspect-square rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-white cursor-zoom-in group"
+                 onClick={() => setZoomedImage(src)}>
+              <Image src={src} alt="Εξώφυλλο" fill className="object-contain p-2 transition-transform duration-500 group-hover:scale-110" unoptimized />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center">
+                 <Maximize2 className="text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity" size={24} />
+              </div>
+            </div>
+          ))}
+        </div>
 
-      {/* Δεξί Βέλος (Πάνω στην εικόνα) */}
-      <button 
-        onClick={(e) => {
-          e.stopPropagation();
-          setCurrentTragoudiIdx(prev => prev === tragoudiaImages.length - 1 ? 0 : prev + 1);
-        }}
-        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg z-10 hover:scale-110 active:scale-95 transition-all"
-      >
-        <ChevronRight className="text-slate-900" size={20} />
-      </button>
-
-      {/* Τελείες (Dots) - Στο κάτω μέρος της εικόνας */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/20 backdrop-blur-sm p-1.5 rounded-full">
-        {tragoudiaImages.map((_, i) => (
+        {/* MOBILE VERSION: SLIDER ΜΕ ΜΕΓΕΘΟΣ 400x400 */}
+        <div className="block md:hidden relative max-w-[400px] mx-auto group px-4">
           <div 
-            key={i} 
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              currentTragoudiIdx === i ? 'bg-white w-4' : 'bg-white/40 w-1.5'
-            }`} 
-          />
-        ))}
+            className="relative aspect-square w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 cursor-zoom-in"
+            onClick={() => setZoomedImage(tragoudiaImages[currentTragoudiIdx])}
+          >
+            <Image 
+              src={tragoudiaImages[currentTragoudiIdx]} 
+              alt="Εξώφυλλο" 
+              fill 
+              className="object-contain p-4 transition-all duration-500" 
+              unoptimized 
+            />
+
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentTragoudiIdx(prev => prev === 0 ? tragoudiaImages.length - 1 : prev - 1);
+              }}
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg z-10"
+            >
+              <ChevronRight className="rotate-180 text-slate-900" size={20} />
+            </button>
+
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentTragoudiIdx(prev => prev === tragoudiaImages.length - 1 ? 0 : prev + 1);
+              }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-lg z-10"
+            >
+              <ChevronRight className="text-slate-900" size={20} />
+            </button>
+
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-black/20 backdrop-blur-sm p-1.5 rounded-full">
+              {tragoudiaImages.map((_, i) => (
+                <div 
+                  key={i} 
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    currentTragoudiIdx === i ? 'bg-white w-4' : 'bg-white/40 w-1.5'
+                  }`} 
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-{/* --- ΠΡΟΣΘΗΚΗ LIGHTBOX (MODAL) ΓΙΑ ΜΕΓΕΘΥΝΣΗ --- */}
+
+      {/* LIGHTBOX (MODAL) */}
       {zoomedImage && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 animate-in fade-in zoom-in duration-300 backdrop-blur-sm"
-          onClick={() => setZoomedImage(null)} // Κλείσιμο με κλικ στο background
+          onClick={() => setZoomedImage(null)}
         >
-          {/* Κουμπί Κλεισίματος (X) */}
           <button 
             className="absolute top-6 right-6 text-white hover:text-slate-300 hover:rotate-90 transition-all p-2 bg-slate-800 rounded-full z-[110]"
             onClick={() => setZoomedImage(null)}
