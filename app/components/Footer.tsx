@@ -67,7 +67,11 @@ export default function Footer() {
             </p>
           </div>
         </div>
-
+      <footer className="mt-32 py-12 border-t border-slate-100 text-center">
+        <p className="text-slate-500 text-lg md:text-xl italic">
+          Σχεδιασμός & Ανάπτυξη Ιστοσελίδας: <span className="text-slate-700 font-bold not-italic">Μπάρκα Ναταλία</span>
+        </p>
+      </footer>
         {/* Bottom Bar (Sans-serif για καθαρότητα) */}
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-slate-400 font-sans">
           <p>© Copyright {currentYear} | Αδελφότης των εν Αθήναις Σαρακατσαναίων Ηπείρου</p>
