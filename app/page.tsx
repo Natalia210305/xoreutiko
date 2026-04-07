@@ -76,7 +76,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto space-y-12">
         <div className="space-y-8 text-xl leading-relaxed text-slate-700">
           <p className="font-medium text-2xl text-justify text-slate-800">
-            Από ιδρύσεως της Αδελφότητας, όλα τα συμβούλια και τα μέλη, ενωμένοι, συνεχίζουμε τον αγώνα μας για τη διάσωση και τη διάδοση της σαρακατσάνικης παράδοσης.
+             ιδρύσεως της Αδελφότητας, όλα τα συμβούλια και τα μέλη, ενωμένοι, συνεχίζουμε τον αγώνα μας για τη διάσωση και τη διάδοση της σαρακατσάνικης παράδοσης.
           </p>
           <div className="border-l-4 border-slate-300 pl-6 ">
             <p className="text-3xl font-bold italic text-slate-800">"Μαζί διατηρούμε ζωντανή την παράδοση!"</p>
