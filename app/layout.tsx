@@ -13,7 +13,7 @@ const garamond = EB_Garamond({
 export const metadata: Metadata = {
   title: "Αδελφότητα των εν Αθήναις Σαρακατσαναίων Ηπείρου | sarakatsanoi.org",
   description: "Η επίσημη ιστοσελίδα της Αδελφότητας των εν Αθήναις Σαρακατσαναίων Ηπείρου. 49 χρόνια πολιτιστικής προσφοράς, παράδοσης και ιστορίας.",
-  keywords: ["Σαρακατσάνοι", "Ήπειρος", "Αθήνα", "Αδελφότητα", "Πολιτισμός", "Παράδοση", "Sarakatsanos", "sarakatsanoi", "Sarakatsanaioi", "Adelfotita", "paradosi", "Σαρακατσάνος", "Σαρακατσαναίοι"],
+  keywords: ["Σαρακατσάνοι", "Ήπειρος", "Αθήνα", "Αδελφότητα", "Χαιρετήματα", "Χατζημιχαλη", " Αγγελική Χατζημιχάλη", "Πολιτισμός", "Παράδοση", "Sarakatsanos", "sarakatsanoi", "Sarakatsanaioi", "Adelfotita", "paradosi", "Σαρακατσάνος", "Σαρακατσαναίοι"],
   verification: {
     google: "o0Iic7R6NTsZT356ltszbMZYCZa1mvyiKvHrHXq0M_c", 
   },
