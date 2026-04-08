@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     description: "49 Χρόνια Πολιτιστικής Προσφοράς",
     url: "https://sarakatsanoi.org",
     siteName: "Αδελφότητα Σαρακατσαναίων",
+    images: [
+      {
+        url: 'https://sarakatsanoi.org/logo.png', // Βεβαιώσου ότι το link οδηγεί στο logo σου
+        width: 800,
+        height: 600,
+      },
+    ],
     locale: "el_GR",
     type: "website",
   },
